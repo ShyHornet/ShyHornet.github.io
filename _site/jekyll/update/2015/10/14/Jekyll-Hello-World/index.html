@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>欢迎访问我的博客!</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Don't go gently into that good night...">
+    <link rel="canonical" href="http://ShyHornet.github.io/jekyll/update/2015/10/14/Jekyll-Hello-World/">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/pygments.css">
+</head>
+
+
+    <body>
+
+      <div class="container">
+
+        <div class="header">
+    <h1>
+        <a style="color: #000;" href="/">codeGlider</a>
+    </h1>
+    <p class="sub">
+        Don't go gently into that good night...
+    </p>
+
+    <div class="menu">
+        <ul class="navlist">
+            
+            <li>
+                <a class="page-link" href="/">主页</a>
+            </li>
+            
+            <li>
+                <a class="page-link" href="/about">关于</a>
+            </li>
+            
+            <li>
+                <a class="page-link" href="http://www.jianshu.com/users/3007ce57abd3/latest_articles">简书</a>
+            </li>
+            
+            <li>
+                <a class="page-link" href="http://github.com/ShyHornet">github</a>
+            </li>
+            
+            <li>
+                <a class="page-link" href="/feed.xml">订阅</a>
+            </li>
+            
+        </ul>
+    </div>
+</div>
+
+
+
+
+        <div class="post">
+
+  <header class="post-header">
+    <h1>欢迎访问我的博客!</h1>
+  </header>
+
+  <p class="meta">2015年 Oct月 14日</p>
+
+  <article class="post-content">
+  <p>You’ll find this post in your <code>_posts</code> directory - edit this post and re-build (or run with the <code>-w</code> switch) to see your changes!
+To add new posts, simply add a file in the <code>_posts</code> directory that follows the convention: YYYY-MM-DD-name-of-post.ext.</p>
+
+<p>Jekyll also offers powerful support for code snippets:</p>
+
+<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="k">def</span> <span class="nf">print_hi</span><span class="p">(</span><span class="nb">name</span><span class="p">)</span>
+  <span class="nb">puts</span> <span class="s2">&quot;Hi, </span><span class="si">#{</span><span class="nb">name</span><span class="si">}</span><span class="s2">&quot;</span>
+<span class="k">end</span>
+<span class="n">print_hi</span><span class="p">(</span><span class="s1">&#39;Tom&#39;</span><span class="p">)</span>
+<span class="c1">#=&gt; prints &#39;Hi, Tom&#39; to STDOUT.</span></code></pre></div>
+
+<div class="highlight"><pre><code class="language-swift" data-lang="swift"><span class="k">func</span> <span class="nf">login</span><span class="p">(){</span>
+        <span class="k">let</span> <span class="n">username</span> <span class="o">=</span> <span class="nb">self</span><span class="p">.</span><span class="n">username</span><span class="p">.</span><span class="n">text</span>
+        <span class="k">let</span> <span class="n">password</span> <span class="o">=</span> <span class="nb">self</span><span class="p">.</span><span class="n">password</span><span class="p">.</span><span class="n">text</span>
+
+        <span class="n">guard</span> <span class="n">username</span><span class="o">?</span><span class="p">.</span><span class="n">getLength</span><span class="p">()</span> <span class="o">&gt;=</span> <span class="mi">4</span> <span class="k">else</span><span class="p">{</span>
+            <span class="n">SVProgressHUD</span><span class="p">.</span><span class="n">showErrorWithStatus</span><span class="p">(</span><span class="s">&quot;用户名长度必须大于4个字符&quot;</span><span class="p">)</span>
+            <span class="k">return</span>
+        <span class="p">}</span>
+        <span class="n">guard</span> <span class="n">password</span><span class="o">?</span><span class="p">.</span><span class="n">getLength</span><span class="p">()</span> <span class="o">&gt;=</span> <span class="mi">8</span> <span class="k">else</span><span class="p">{</span>
+           <span class="n">SVProgressHUD</span><span class="p">.</span><span class="n">showErrorWithStatus</span><span class="p">(</span><span class="s">&quot;密码长度必须大于8个字符&quot;</span><span class="p">)</span>
+            <span class="k">return</span>
+        <span class="p">}</span>
+
+
+
+        <span class="n">PFUser</span><span class="p">.</span><span class="n">logInWithUsernameInBackground</span><span class="p">(</span><span class="n">username</span><span class="o">!</span><span class="p">,</span> <span class="nl">password</span><span class="p">:</span> <span class="n">password</span><span class="o">!</span><span class="p">)</span>
+        <span class="p">{</span> <span class="p">(</span><span class="n">user</span><span class="p">,</span><span class="n">error</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Void</span> <span class="k">in</span>
+
+            <span class="n">guard</span> <span class="n">user</span> <span class="o">!=</span> <span class="nb">nil</span> <span class="k">else</span><span class="p">{</span>
+            <span class="n">print</span><span class="p">(</span><span class="n">error</span><span class="o">?</span><span class="p">.</span><span class="n">userInfo</span><span class="p">)</span>
+
+
+              <span class="n">SVProgressHUD</span><span class="p">.</span><span class="n">showErrorWithStatus</span><span class="p">(</span><span class="s">&quot;登陆失败╮(╯﹏╰）╭&quot;</span><span class="p">)</span>
+
+                <span class="k">return</span>
+            <span class="p">}</span>
+            <span class="n">SVProgressHUD</span><span class="p">.</span><span class="n">dismiss</span><span class="p">()</span>
+            <span class="n">dispatch_async</span><span class="p">(</span><span class="n">dispatch_get_main_queue</span><span class="p">(),</span> <span class="p">{</span> <span class="p">()</span> <span class="o">-&gt;</span> <span class="n">Void</span> <span class="k">in</span>
+
+
+                <span class="nb">self</span><span class="p">.</span><span class="n">navigationController</span><span class="o">?</span><span class="p">.</span><span class="n">popViewControllerAnimated</span><span class="p">(</span><span class="nb">true</span><span class="p">)</span>
+            <span class="p">})</span>
+
+
+        <span class="p">}</span>
+    <span class="p">}</span></code></pre></div>
+
+<p>Check out the <a href="http://jekyllrb.com">Jekyll docs</a> for more info on how to get the most out of Jekyll. File all bugs/feature requests at <a href="https://github.com/jekyll/jekyll">Jekyll’s GitHub repo</a>.</p>
+
+
+  </article>
+  <div id="disqus_thread"></div>
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES * * */
+    var disqus_shortname = 'codeglider';
+    
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+</div>
+
+
+        <footer class="site-footer">
+<a href="https://ShyHornet.github.io">A blog </a>written  by <a href="http://www.jianshu.com/users/3007ce57abd3/latest_articles">codeGlider</a>
+
+</footer>
+
+
+      </div>
+
+    </body>
+</html>
