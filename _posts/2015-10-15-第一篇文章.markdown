@@ -1,0 +1,26 @@
+---
+layout: post
+title:  "Jkeyll初探"
+tags: front-end html css javascript Jquery Jkeyll
+---
+
+昨天建立了自己的<strong>Jkeyll</strong>博客,研究了一整天Jkeyll的工作原理和如何进行配置。
+#首先是安装
+这一步很简单,只需在终端输入:
+{% highlight bash %}
+$ sudo gem install jekyll
+{% endhighlight %}
+创建一个简单的博客并运行:
+{% highlight bash  %}
+$ jekyll new helloJekyll
+$ cd helloJkeyll
+$ jekyll serve
+{% endhighlight %}
+在浏览器中输入<strong>localhost:4000</strong>即可观看效果:
+
+![初始网站](/images/post/2015-10-15-1.png)
+
+Check out the [Jekyll docs][jekyll] for more info on how to get the most out of Jekyll. File all bugs/feature requests at [Jekyll's GitHub repo][jekyll-gh].
+
+[jekyll-gh]: https://github.com/jekyll/jekyll
+[jekyll]:    http://jekyllrb.com

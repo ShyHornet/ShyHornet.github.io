@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "欢迎访问我的博客!"
-categories: jekyll update
+tags: 个人 Jkeyll 
 ---
 
 经过一天的钻研，终于建立了自己的私人博客，使用[Jekyll](http://jekyllrb.com)(我发现了汉化版的官网，虽然有部分文字没有汉化，但是也比原文好读得多[Jekyll汉化版官网](http://jekyll.bootcss.com))

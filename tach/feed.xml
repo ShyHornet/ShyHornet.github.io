@@ -8,14 +8,25 @@
     
       <item>
         <title>Jkeyll初探</title>
-        <description>&lt;p&gt;昨天建立了自己的&lt;strong&gt;Jkeyll&lt;/strong&gt;博客,研究了一整天Jkeyll的工作原理和如何进行配置。
-#首先是安装
-这一步很简单,只需在终端输入:&lt;/p&gt;
+        <description>&lt;p&gt;昨天建立了自己的&lt;strong&gt;Jkeyll&lt;/strong&gt;博客,研究了一整天Jkeyll的工作原理和如何进行配置。&lt;/p&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;lineno&quot;&gt;1&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;sudo gem install jekyll&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h1&gt;首先是安装&lt;/h1&gt;
 
-&lt;p&gt;Check out the &lt;a href=&quot;http://jekyllrb.com&quot;&gt;Jekyll docs&lt;/a&gt; for more info on how to get the most out of Jekyll. File all bugs/feature requests at &lt;a href=&quot;https://github.com/jekyll/jekyll&quot;&gt;Jekyll’s GitHub repo&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;这一步很简单,只需在终端输入:&lt;/p&gt;
 
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;sudo gem install jekyll&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;创建一个简单的博客并运行:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;jekyll new helloJekyll
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;cd &lt;/span&gt;helloJkeyll
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;jekyll serve&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;在浏览器中输入&lt;strong&gt;localhost:4000&lt;/strong&gt;即可观看效果:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/post/2015-10-15-1.png&quot; alt=&quot;初始网站&quot;&gt;&lt;/p&gt;
+
+&lt;p&gt;Check out the &lt;a href=&quot;http://jekyllrb.com&quot;&gt;Jekyll docs&lt;/a&gt; for more info on how to get the most out of Jekyll. File all bugs/feature requests at &lt;a href=&quot;https://github.com/jekyll/jekyll&quot;&gt;Jekyll&amp;#39;s GitHub repo&lt;/a&gt;.&lt;/p&gt;
 </description>
         <pubDate>Thu, 15 Oct 2015 00:00:00 +0800</pubDate>
         <link>http://ShyHornet.github.io/2015/10/15/%E7%AC%AC%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0/</link>

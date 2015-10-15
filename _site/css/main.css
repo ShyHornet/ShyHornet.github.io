@@ -6,15 +6,15 @@ body {
 }
 
 .container {
-  background: #FFFFFF;
+  background: #ffe;
   box-shadow: 0 0 10px rgba(0,0,0,0.5);
   margin: 100px auto 0;
-  max-width: 400px;
+  max-width: 500px;
   min-height: 300px;
-  padding-top: 200px;
-  padding-left: 200px;
-  padding-right: 200px;
-  padding-bottom: 100px;
+  padding-top: 50px;
+  padding-left: 80px;
+  padding-right: 80px;
+  padding-bottom: 50px;
   position: relative;
   width: 80%;
 }
@@ -30,13 +30,20 @@ body {
 
 
 .container:before {
-  background: #FFFFFF;
+  background: #ffe;
   box-shadow: 0 0 8px rgba(0,0,0,0.5);
   left: -5px;
   top: 4px;
-  -webkit-transform: rotate(-2.5deg);
+  transform: rotate(-2.5deg);
 }
 
+.container:after {
+  background: #ffe;
+  box-shadow: 0 0 3px rgba(0,0,0,0.5);
+  right: -3px;
+  top: 1px;
+  transform: rotate(1.4deg);
+}
 .pen{
   margin-left: 350px;
 
@@ -80,9 +87,8 @@ body {
 {display:block}
 #music-control:hover{background-color:#ab466a}
 #music-content{position:fixed;bottom:-53px;right:60px;display:none}
-.link-button{
-
-  /* Rectangle 6: */
+.tag{
+color: black;
 background: #30C2AA;
 box-shadow: 2px 2px 2px 0px #CCCCCC;
 border-radius: 5px;
@@ -90,13 +96,16 @@ padding-left: 20px;
 padding-right: 20px;
 padding-top: 5px;
 padding-bottom: 5px;
+
 min-width: 50px;
 max-height:50px;
-
+line-height: 30px;
 
 }
 
-.link-button:hover{
+
+.tag:hover{
+  color: black;
 background: #CE668A;
 box-shadow: 2px 2px 2px 0px #CCCCCC;
 border-radius: 5px;
@@ -104,16 +113,12 @@ padding-left: 20px;
 padding-right: 20px;
 padding-top: 5px;
 padding-bottom: 5px;
+
 min-width: 50px;
 max-height:50px;
+line-height: 30px;
 }
-.container:after {
-  background: #FFFFFF;
-  box-shadow: 0 0 3px rgba(0,0,0,0.5);
-  right: -3px;
-  top: 1px;
-  transform: rotate(1.4deg);
-}
+
 
 /* links */
 a:link, a:visited, a:active, a:hover {
@@ -127,6 +132,7 @@ a:link, a:visited, a:active, a:hover {
 }
 
 a.page-link:hover {
+  border-spacing: 4px;
   border-bottom: 4px solid #C00;
 }
 
@@ -139,13 +145,29 @@ a.page-link:hover {
   list-style-type: none;
   padding-right: 10px;
 }
+.pageTitle {
 
+  font-size: 1.8em;
+  /* font-weight: 900; */
+  margin: 0.5em 0 0.25em 0;
+  border-bottom-style: double;
+  border-bottom-color: #C00;
+  border-width:2px;
+  padding-bottom: 0.2em;
+}
+.center{
+text-align: center;
+
+
+}
 /* headings */
 h1, h2, h3, h4, h5, h6 {
-  font-size: 1em;
+  font-size: 1.1em;
 }
 
 h1 {
+  padding-top: 1em;
+  border-top: 2px dashed #C00;
   text-transform: uppercase;
   font-weight: bold;
   text-decoration: underline;
@@ -162,7 +184,7 @@ h3 {
 
 .header {
   text-align: center;
-  margin-bottom: 100px;
+  margin-bottom: 10px;
 }
 
 .header > h1 {

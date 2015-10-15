@@ -5,16 +5,16 @@ baseurl: ""
 url: "http://ShyHornet.github.io"
 
 # Build settings
-markdown: kramdown
+markdown: redcarpet
 permalink: pretty
 highlighter: pygments
 paginate: 3
 
 # Links
 links:
-  - title: "主页"
+  - title: "Home"
     url: /
-  - title: "关于"
+  - title: "About"
     url: /about
   - title: "简书"
     url: http://www.jianshu.com/users/3007ce57abd3/latest_articles
