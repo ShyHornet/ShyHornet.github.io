@@ -66,7 +66,7 @@ body {
   border-radius:25px;
   background:url("../images/music.png");
   background-color:#d0648a;
-  transition:1sec;
+  transition-duration: 1s;
   transform:translateZ(0);
   -webkit-transform:translateZ(0)
 }
@@ -76,7 +76,8 @@ body {
   -ms-transform:rotate(180deg);
   -o-transform:rotate(180deg);
   transform:rotate(180deg)}
-#music-control.on+#music-content{display:block}
+#music-control.on+#music-content
+{display:block}
 #music-control:hover{background-color:#ab466a}
 #music-content{position:fixed;bottom:-53px;right:60px;display:none}
 .link-button{
