@@ -18,7 +18,7 @@ $ jekyll serve
 {% endhighlight %}
 在浏览器中输入<strong>localhost:4000</strong>即可观看效果:
 
-![初始网站](/images/post/2015-10-15-1.png)
+![初始网站](http://raw.githubusercontent.com/ShyHornet/ShyHornet.github.io/master/images/post/2015-10-15-1.png)
 
 Check out the [Jekyll docs][jekyll] for more info on how to get the most out of Jekyll. File all bugs/feature requests at [Jekyll's GitHub repo][jekyll-gh].
 
