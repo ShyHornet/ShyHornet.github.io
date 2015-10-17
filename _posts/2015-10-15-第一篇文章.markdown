@@ -92,9 +92,34 @@ links:
 
 ```html
 <div class="pageTitle center">
-    <a style="color: #000;" href="{{ site.baseurl }}/">{{ site.title }}</a>
+    <a style="color: #000;" href="`{``{` site.baseurl `}``}`/">`{``{ site.title `}`}`</a>
 </div>
 <p class="sub-title">
-    {{ site.description }}
+    `{``{` site.description `}``}`
 </p>
 ```
+
+>代码取自本站源码,`{`都被我用``包了起来，否则就会渲染出这些变量的值了
+
+注意到`Links`，个人理解相当于定义一个数组，数组元素是字典，可以通过内嵌`for`循环来得到他们的值:
+
+```
+`{``%` for link in site.links `%``}`
+<li>
+    <a class="page-link" href="`{``{` link.url | prepend: site.baseurl `}``}`">`{``{` link.title `}``}`</a>
+</li>
+`{``%` endfor `%``}`
+
+```
+
+渲染后:
+
+```html
+{% for link in site.links %}
+<li>
+    <a class="page-link" href="{{ link.url | prepend: site.baseurl }}">{{ link.title }}</a>
+</li>
+{% endfor %}
+
+```
+这其实就是网站的导航部分。

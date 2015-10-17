@@ -12,13 +12,13 @@ paginate: 3
 
 # Links
 links:
-  - title: "Home"
+  - title: "主页"
     url: /
-  - title: "About"
+  - title: "关于"
     url: /about
   - title: "简书"
     url: http://www.jianshu.com/users/3007ce57abd3/latest_articles
-  - title: "github"
+  - title: "源码"
     url: http://github.com/ShyHornet
   - title: "订阅"
     url: /feed.xml
