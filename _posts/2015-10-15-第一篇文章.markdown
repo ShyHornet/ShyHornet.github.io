@@ -1,26 +1,62 @@
 ---
 layout: post
-title:  "Jkeyll初探"
+title:  "Jekyll初探"
 tags: front-end html css javascript Jquery Jkeyll
+excerpt: 受到野子Joey的文章的启发，我也开始研究Jkeyll了! 在研究过程中遇到了不少问题，但是在折腾的过程中也锻炼了前端开发能力，而且看着自己的博客一点一点成型，最后运行在github上，确实很有成就感!。 昨天初步建立了自己的Jkeyll博客,研究了一整天Jkeyll的工作原理和如何进行各种个性化设置。
 ---
 
-昨天建立了自己的<strong>Jkeyll</strong>博客,研究了一整天Jkeyll的工作原理和如何进行配置。
+受到[野子Joey的文章](http://www.jianshu.com/p/4fd3cb0a11da)的启发，我也开始研究**Jekyll**了!
+在研究过程中遇到了不少问题，但是在折腾的过程中也锻炼了前端开发能力，而且看着自己的博客一点一点成型，最后运行在**github**上，确实很有成就感!。
+昨天初步建立了自己的**Jekyll**博客,研究了一整天Jkeyll的工作原理和如何进行各种个性化设置。
 #首先是安装
 这一步很简单,只需在终端输入:
-{% highlight bash %}
+
+```bash
 $ sudo gem install jekyll
-{% endhighlight %}
+```
+
 创建一个简单的博客并运行:
-{% highlight bash  %}
+```bash
 $ jekyll new helloJekyll
 $ cd helloJkeyll
 $ jekyll serve
-{% endhighlight %}
+```
+
+> serve 还可以加上参数 -w 这样修改网站后可以自动更改，刷新后反映到浏览器中
+
 在浏览器中输入<strong>localhost:4000</strong>即可观看效果:
 
-![初始网站](http://raw.githubusercontent.com/ShyHornet/ShyHornet.github.io/master/images/post/2015-10-15-1.png)
+![初始网站](https://raw.githubusercontent.com/ShyHornet/ShyHornet.github.io/master/images/post/2015-10-15-1.png)
+我们来看一眼基本的Jekyll的一般目录结构:
 
-Check out the [Jekyll docs][jekyll] for more info on how to get the most out of Jekyll. File all bugs/feature requests at [Jekyll's GitHub repo][jekyll-gh].
+```bash
+.
+├── _config.yml
+├── _drafts
+|   ├── begin-with-the-crazy-ideas.textile
+|   └── on-simplicity-in-technology.markdown
+├── _includes
+|   ├── footer.html
+|   └── header.html
+├── _layouts
+|   ├── default.html
+|   └── post.html
+├── _posts
+|   ├── 2007-10-29-why-every-programmer-should-play-nethack.textile
+|   └── 2009-04-26-barcamp-boston-4-roundup.textile
+├── css
+|── images
+├── _site
+└── index.html
+```
 
-[jekyll-gh]: https://github.com/jekyll/jekyll
-[jekyll]:    http://jekyllrb.com
+ - **_config.yml**用来保存一些配置数据;
+ - **_drafts**目录用来存储草稿，与已经发布的文章不同，这是没有日期的文章，在运行`jekyll serve`会自动赋予当前日期。已经发布的文章在**_posts**目录下。
+ - **_includes**目录中包含的html文件可以作为模块来加载,比如加载`footer.html`可以使用标签`{``%`  `%``}`将代码`include footer.html`包裹其中来加载,这些代码被称作[Liquid](https://themes.shopify.com)代码，在Jekyll中大量使用这种语法
+ - 正如上面所说**_posts**中放的是发布的文章，不过格式一定要符合`年-月-日-标题.md`否则会有错误。
+ - **_layouts**这里存放文章的模板,**default.html**是整个网站的框架，**post.html**则是单个文章的模板。
+  剩下两个就很好理解，整个网页的css样式表，和图片资源，如果需要，你还可以加上js文件夹等等，无论你加上多少文件夹，到最后Jekyll都会自动对他们进行转换，最后生成完整的网站到**_site**文件夹中。
+
+ > 所以在修改网站内容的时候，不要去修改**_site**文件夹里的内容，否则一旦网站运行起来，Jekyll会更新**_site**文件夹，修改会被重置。
+
+#关于配置文件

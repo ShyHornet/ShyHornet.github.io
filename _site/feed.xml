@@ -1,32 +1,70 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>codeGlider</title>
+    <title>codeGlider&#39;s blog</title>
     <description>Don&#39;t go gently into that good night...</description>
     <link>http://ShyHornet.github.io/</link>
     <atom:link href="http://ShyHornet.github.io/feed.xml" rel="self" type="application/rss+xml" />
     
       <item>
-        <title>Jkeyll初探</title>
-        <description>&lt;p&gt;昨天建立了自己的&lt;strong&gt;Jkeyll&lt;/strong&gt;博客,研究了一整天Jkeyll的工作原理和如何进行配置。&lt;/p&gt;
+        <title>Jekyll初探</title>
+        <description>&lt;p&gt;受到&lt;a href=&quot;http://www.jianshu.com/p/4fd3cb0a11da&quot;&gt;野子Joey的文章&lt;/a&gt;的启发，我也开始研究&lt;strong&gt;Jekyll&lt;/strong&gt;了!
+在研究过程中遇到了不少问题，但是在折腾的过程中也锻炼了前端开发能力，而且看着自己的博客一点一点成型，最后运行在&lt;strong&gt;github&lt;/strong&gt;上，确实很有成就感!。
+昨天初步建立了自己的&lt;strong&gt;Jekyll&lt;/strong&gt;博客,研究了一整天Jkeyll的工作原理和如何进行各种个性化设置。&lt;/p&gt;
 
 &lt;h1&gt;首先是安装&lt;/h1&gt;
 
 &lt;p&gt;这一步很简单,只需在终端输入:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;sudo gem install jekyll
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;创建一个简单的博客并运行:
+&lt;code&gt;bash
+$ jekyll new helloJekyll
+$ cd helloJkeyll
+$ jekyll serve
+&lt;/code&gt;&lt;/p&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;sudo gem install jekyll&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-&lt;p&gt;创建一个简单的博客并运行:&lt;/p&gt;
-
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;jekyll new helloJekyll
-&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;cd &lt;/span&gt;helloJkeyll
-&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;jekyll serve&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;blockquote&gt;
+&lt;p&gt;serve 还可以加上参数 -w 这样修改网站后可以自动更改，刷新后反映到浏览器中&lt;/p&gt;
+&lt;/blockquote&gt;
 
 &lt;p&gt;在浏览器中输入&lt;strong&gt;localhost:4000&lt;/strong&gt;即可观看效果:&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;http://ShyHornet.github.io/images/post/2015-10-15-1.png&quot; alt=&quot;初始网站&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://raw.githubusercontent.com/ShyHornet/ShyHornet.github.io/master/images/post/2015-10-15-1.png&quot; alt=&quot;初始网站&quot;&gt;
+我们来看一眼基本的Jekyll的一般目录结构:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;.
+├── _config.yml
+├── _drafts
+&lt;span class=&quot;p&quot;&gt;|&lt;/span&gt;   ├── begin-with-the-crazy-ideas.textile
+&lt;span class=&quot;p&quot;&gt;|&lt;/span&gt;   └── on-simplicity-in-technology.markdown
+├── _includes
+&lt;span class=&quot;p&quot;&gt;|&lt;/span&gt;   ├── footer.html
+&lt;span class=&quot;p&quot;&gt;|&lt;/span&gt;   └── header.html
+├── _layouts
+&lt;span class=&quot;p&quot;&gt;|&lt;/span&gt;   ├── default.html
+&lt;span class=&quot;p&quot;&gt;|&lt;/span&gt;   └── post.html
+├── _posts
+&lt;span class=&quot;p&quot;&gt;|&lt;/span&gt;   ├── 2007-10-29-why-every-programmer-should-play-nethack.textile
+&lt;span class=&quot;p&quot;&gt;|&lt;/span&gt;   └── 2009-04-26-barcamp-boston-4-roundup.textile
+├── css
+&lt;span class=&quot;p&quot;&gt;|&lt;/span&gt;── images
+├── _site
+└── index.html
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;_config.yml&lt;/strong&gt;用来保存一些配置数据;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;_drafts&lt;/strong&gt;目录用来存储草稿，与已经发布的文章不同，这是没有日期的文章，在运行&lt;code&gt;jekyll serve&lt;/code&gt;会自动赋予当前日期。已经发布的文章在&lt;strong&gt;_posts&lt;/strong&gt;目录下。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;_includes&lt;/strong&gt;目录中包含的html文件可以作为模块来加载,比如加载&lt;code&gt;footer.html&lt;/code&gt;可以使用标签&lt;code&gt;{&lt;/code&gt;&lt;code&gt;%&lt;/code&gt;  &lt;code&gt;%&lt;/code&gt;&lt;code&gt;}&lt;/code&gt;将代码&lt;code&gt;include footer.html&lt;/code&gt;包裹其中来加载,这些代码被称作&lt;a href=&quot;https://themes.shopify.com&quot;&gt;Liquid&lt;/a&gt;代码，在Jekyll中大量使用这种语法&lt;/li&gt;
+&lt;li&gt;正如上面所说&lt;strong&gt;_posts&lt;/strong&gt;中放的是发布的文章，不过格式一定要符合&lt;code&gt;年-月-日-标题.md&lt;/code&gt;否则会有错误。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;_layouts&lt;/strong&gt;这里存放文章的模板,&lt;strong&gt;default.html&lt;/strong&gt;是整个网站的框架，&lt;strong&gt;post.html&lt;/strong&gt;则是单个文章的模板。
+剩下两个就很好理解，整个网页的css样式表，和图片资源，如果需要，你还可以加上js文件夹等等，无论你加上多少文件夹，到最后Jekyll都会自动对他们进行转换，最后生成完整的网站到&lt;strong&gt;_site&lt;/strong&gt;文件夹中。&lt;/li&gt;
+&lt;/ul&gt;
 
-&lt;p&gt;Check out the &lt;a href=&quot;http://jekyllrb.com&quot;&gt;Jekyll docs&lt;/a&gt; for more info on how to get the most out of Jekyll. File all bugs/feature requests at &lt;a href=&quot;https://github.com/jekyll/jekyll&quot;&gt;Jekyll&amp;#39;s GitHub repo&lt;/a&gt;.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;所以在修改网站内容的时候，不要去修改&lt;strong&gt;_site&lt;/strong&gt;文件夹里的内容，否则一旦网站运行起来，Jekyll会更新&lt;strong&gt;_site&lt;/strong&gt;文件夹，修改会被重置。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h1&gt;关于配置文件&lt;/h1&gt;
 </description>
         <pubDate>Thu, 15 Oct 2015 00:00:00 +0800</pubDate>
         <link>http://ShyHornet.github.io/2015/10/15/%E7%AC%AC%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0/</link>
@@ -35,7 +73,7 @@
     
       <item>
         <title>欢迎访问我的博客!</title>
-        <description>&lt;p&gt;经过一天的钻研，终于建立了自己的私人博客，使用&lt;a href=&quot;http://jekyllrb.com&quot;&gt;Jekyll&lt;/a&gt;(我发现了汉化版的官网，虽然有部分文字没有汉化，但是也比原文好读得多&lt;a href=&quot;http://jekyll.bootcss.com&quot;&gt;Jekyll汉化版官网&lt;/a&gt;)
+        <description>&lt;p&gt;经过一天的钻研，终于建立了自己的私人博客，使用&lt;a href=&quot;http://jekyllrb.com&quot;&gt;Jekyll&lt;/a&gt;(我发现了汉化版的官网，虽然有部分文字没有汉化，但是也比原文好读得多&lt;a href=&quot;http://jekyllcn.com&quot;&gt;Jekyll汉化版官网&lt;/a&gt;)
 创建和发布博客,使用&lt;a href=&quot;https://pages.github.com&quot;&gt;github-pages&lt;/a&gt;来作为网站服务器,真的非常方便而且有趣，而且在你倒腾的过程中，也学习了网页开发，可谓一举两得！
 此网站的建立受到了&lt;a href=&quot;http://www.jianshu.com/p/4fd3cb0a11da&quot;&gt;野子Joey的文章&lt;/a&gt;的启发,还有&lt;a href=&quot;http://zhangwenli.com/&quot;&gt;张雯丽博客&lt;/a&gt;(代码在&lt;a href=&quot;https://github.com/Ovilia/blog&quot;&gt;github&lt;/a&gt;上)的强烈启发！非常感谢！&lt;/p&gt;
 </description>

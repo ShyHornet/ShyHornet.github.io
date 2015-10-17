@@ -7,7 +7,7 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Jkeyll初探</title>
+    <title>Jekyll初探</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Don't go gently into that good night...">
     <link rel="canonical" href="http://ShyHornet.github.io/2015/10/15/%E7%AC%AC%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0/">
@@ -15,6 +15,7 @@
     <!-- Custom CSS -->
     <link rel="stylesheet" href="/css/main.css">
     <link rel="stylesheet" href="/css/pygments.css">
+    <link href="/css/font.css" rel="stylesheet"  charset="utf-8">
     <!-- Custom JS -->
     <script type="text/javascript" src="/js/jquery-2.1.4.min.js" >
     </script>
@@ -30,9 +31,9 @@
 
         <div class="header">
     <div class="pageTitle center">
-        <a style="color: #000;" href="/">codeGlider</a>
+        <a style="color: #000;" href="/">codeGlider's blog</a>
     </div>
-    <p class="sub">
+    <p class="sub-title">
         Don't go gently into that good night...
     </p>
 
@@ -67,7 +68,7 @@
         <div class="post">
 
   <header class="post-header">
-    <h1>Jkeyll初探</h1>
+    <h1>Jekyll初探</h1>
   </header>
   
 
@@ -91,25 +92,63 @@
   <p class="meta">15 Oct 2015</p>
 
   <article class="post-content">
-  <p>昨天建立了自己的<strong>Jkeyll</strong>博客,研究了一整天Jkeyll的工作原理和如何进行配置。</p>
+  <p>受到<a href="http://www.jianshu.com/p/4fd3cb0a11da">野子Joey的文章</a>的启发，我也开始研究<strong>Jekyll</strong>了!
+在研究过程中遇到了不少问题，但是在折腾的过程中也锻炼了前端开发能力，而且看着自己的博客一点一点成型，最后运行在<strong>github</strong>上，确实很有成就感!。
+昨天初步建立了自己的<strong>Jekyll</strong>博客,研究了一整天Jkeyll的工作原理和如何进行各种个性化设置。</p>
 
 <h1>首先是安装</h1>
 
 <p>这一步很简单,只需在终端输入:</p>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>sudo gem install jekyll
+</code></pre></div>
+<p>创建一个简单的博客并运行:
+<code>bash
+$ jekyll new helloJekyll
+$ cd helloJkeyll
+$ jekyll serve
+</code></p>
 
-<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>sudo gem install jekyll</code></pre></div>
-
-<p>创建一个简单的博客并运行:</p>
-
-<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>jekyll new helloJekyll
-<span class="nv">$ </span><span class="nb">cd </span>helloJkeyll
-<span class="nv">$ </span>jekyll serve</code></pre></div>
+<blockquote>
+<p>serve 还可以加上参数 -w 这样修改网站后可以自动更改，刷新后反映到浏览器中</p>
+</blockquote>
 
 <p>在浏览器中输入<strong>localhost:4000</strong>即可观看效果:</p>
 
-<p><img src="http://ShyHornet.github.io/images/post/2015-10-15-1.png" alt="初始网站"></p>
+<p><img src="https://raw.githubusercontent.com/ShyHornet/ShyHornet.github.io/master/images/post/2015-10-15-1.png" alt="初始网站">
+我们来看一眼基本的Jekyll的一般目录结构:</p>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">.
+├── _config.yml
+├── _drafts
+<span class="p">|</span>   ├── begin-with-the-crazy-ideas.textile
+<span class="p">|</span>   └── on-simplicity-in-technology.markdown
+├── _includes
+<span class="p">|</span>   ├── footer.html
+<span class="p">|</span>   └── header.html
+├── _layouts
+<span class="p">|</span>   ├── default.html
+<span class="p">|</span>   └── post.html
+├── _posts
+<span class="p">|</span>   ├── 2007-10-29-why-every-programmer-should-play-nethack.textile
+<span class="p">|</span>   └── 2009-04-26-barcamp-boston-4-roundup.textile
+├── css
+<span class="p">|</span>── images
+├── _site
+└── index.html
+</code></pre></div>
+<ul>
+<li><strong>_config.yml</strong>用来保存一些配置数据;</li>
+<li><strong>_drafts</strong>目录用来存储草稿，与已经发布的文章不同，这是没有日期的文章，在运行<code>jekyll serve</code>会自动赋予当前日期。已经发布的文章在<strong>_posts</strong>目录下。</li>
+<li><strong>_includes</strong>目录中包含的html文件可以作为模块来加载,比如加载<code>footer.html</code>可以使用标签<code>{</code><code>%</code>  <code>%</code><code>}</code>将代码<code>include footer.html</code>包裹其中来加载,这些代码被称作<a href="https://themes.shopify.com">Liquid</a>代码，在Jekyll中大量使用这种语法</li>
+<li>正如上面所说<strong>_posts</strong>中放的是发布的文章，不过格式一定要符合<code>年-月-日-标题.md</code>否则会有错误。</li>
+<li><strong>_layouts</strong>这里存放文章的模板,<strong>default.html</strong>是整个网站的框架，<strong>post.html</strong>则是单个文章的模板。
+剩下两个就很好理解，整个网页的css样式表，和图片资源，如果需要，你还可以加上js文件夹等等，无论你加上多少文件夹，到最后Jekyll都会自动对他们进行转换，最后生成完整的网站到<strong>_site</strong>文件夹中。</li>
+</ul>
 
-<p>Check out the <a href="http://jekyllrb.com">Jekyll docs</a> for more info on how to get the most out of Jekyll. File all bugs/feature requests at <a href="https://github.com/jekyll/jekyll">Jekyll&#39;s GitHub repo</a>.</p>
+<blockquote>
+<p>所以在修改网站内容的时候，不要去修改<strong>_site</strong>文件夹里的内容，否则一旦网站运行起来，Jekyll会更新<strong>_site</strong>文件夹，修改会被重置。</p>
+</blockquote>
+
+<h1>关于配置文件</h1>
 
   </article>
   <div id="disqus_thread"></div>
@@ -143,9 +182,10 @@
   <div id="music-panel">
     <a id="music-control" href="javascript:;" onclick="toggleMusicPanel()"></a>
     <div id="music-content">
-        <iframe  frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=450 src="http://music.163.com/outchain/player?type=0&id=116145968&auto=1&height=430"></iframe>
+        <iframe  frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=450 src="http://music.163.com/outchain/player?type=0&id=116145968&auto=0&height=430"></iframe>
     </div>
 </div>
+
     </div>
 
 </html>

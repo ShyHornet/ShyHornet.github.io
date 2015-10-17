@@ -10,7 +10,7 @@ title: Home
     <li>
       <h1 >{{ post.title }}</h1>
       <span>{{ post.date | date: "%b %-d, %Y" }}</span>
-      {{ post.excerpt }}
+      <p>{{ post.excerpt }}</p>
       <div class="continue">
         <a href="{{ post.url | prepend: site.baseurl }}">&bull;&bull;&bull;</a>
       </div>
