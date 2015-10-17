@@ -240,11 +240,12 @@ h3 {
   font-size: 1em;
 }
 strong{
-  color: #c00;
+  color: #C00;
 }
-code{
-
-
+p>code,ul>code,li>code{
+  background-color: #F5F5F5;
+color: #C00;
+font-weight: bold;
 }
 /* footer */
 footer {

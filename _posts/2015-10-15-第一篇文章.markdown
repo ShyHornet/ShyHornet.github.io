@@ -27,7 +27,6 @@ $ jekyll serve
 在浏览器中输入<strong>localhost:4000</strong>即可观看效果:
 
 ![初始网站](https://raw.githubusercontent.com/ShyHornet/ShyHornet.github.io/master/images/post/2015-10-15-1.png)
-<<<<<<< HEAD
 我们来看一眼基本的Jekyll的一般目录结构:
 
 ```bash
@@ -57,9 +56,45 @@ $ jekyll serve
  - 正如上面所说**_posts**中放的是发布的文章，不过格式一定要符合`年-月-日-标题.md`否则会有错误。
  - **_layouts**这里存放文章的模板,**default.html**是整个网站的框架，**post.html**则是单个文章的模板。
   剩下两个就很好理解，整个网页的css样式表，和图片资源，如果需要，你还可以加上js文件夹等等，无论你加上多少文件夹，到最后Jekyll都会自动对他们进行转换，最后生成完整的网站到**_site**文件夹中。
-=======
->>>>>>> 8a28d5c3ef8f88df8794ba8064b373b6de5ef386
 
  > 所以在修改网站内容的时候，不要去修改**_site**文件夹里的内容，否则一旦网站运行起来，Jekyll会更新**_site**文件夹，修改会被重置。
 
 #关于配置文件
+
+```bash
+# Site settings
+title: "codeGlider's blog"
+description: "Do not go gentle into that good night..."
+baseurl: ""
+url: "http://ShyHornet.github.io"
+
+# Build settings
+markdown: redcarpet
+permalink: pretty
+highlighter: pygments
+paginate: 3
+
+# Links
+links:
+  - title: "Home"
+    url: /
+  - title: "About"
+    url: /about
+  - title: "简书"
+    url: http://www.jianshu.com/users/3007ce57abd3/latest_articles
+  - title: "github"
+    url: http://github.com/ShyHornet
+  - title: "订阅"
+    url: /feed.xml
+```
+这是我的配置文件，实际上这些都是可以自己定义的全局变量，然后你在网站的各个地方都可以使用上面所提到的`Liquid`代码引用,所有该文件中定义的变量都可以使用`site.#`的形式来引用。
+像下面这样:
+
+```html
+<div class="pageTitle center">
+    <a style="color: #000;" href="{{ site.baseurl }}/">{{ site.title }}</a>
+</div>
+<p class="sub-title">
+    {{ site.description }}
+</p>
+```

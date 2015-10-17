@@ -31,7 +31,6 @@ $ jekyll serve
 &lt;p&gt;在浏览器中输入&lt;strong&gt;localhost:4000&lt;/strong&gt;即可观看效果:&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;https://raw.githubusercontent.com/ShyHornet/ShyHornet.github.io/master/images/post/2015-10-15-1.png&quot; alt=&quot;初始网站&quot;&gt;
-&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt; HEAD
 我们来看一眼基本的Jekyll的一般目录结构:&lt;/p&gt;
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;.
 ├── _config.yml
@@ -58,9 +57,7 @@ $ jekyll serve
 &lt;li&gt;&lt;strong&gt;_includes&lt;/strong&gt;目录中包含的html文件可以作为模块来加载,比如加载&lt;code&gt;footer.html&lt;/code&gt;可以使用标签&lt;code&gt;{&lt;/code&gt;&lt;code&gt;%&lt;/code&gt;  &lt;code&gt;%&lt;/code&gt;&lt;code&gt;}&lt;/code&gt;将代码&lt;code&gt;include footer.html&lt;/code&gt;包裹其中来加载,这些代码被称作&lt;a href=&quot;https://themes.shopify.com&quot;&gt;Liquid&lt;/a&gt;代码，在Jekyll中大量使用这种语法&lt;/li&gt;
 &lt;li&gt;正如上面所说&lt;strong&gt;_posts&lt;/strong&gt;中放的是发布的文章，不过格式一定要符合&lt;code&gt;年-月-日-标题.md&lt;/code&gt;否则会有错误。&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;_layouts&lt;/strong&gt;这里存放文章的模板,&lt;strong&gt;default.html&lt;/strong&gt;是整个网站的框架，&lt;strong&gt;post.html&lt;/strong&gt;则是单个文章的模板。
-剩下两个就很好理解，整个网页的css样式表，和图片资源，如果需要，你还可以加上js文件夹等等，无论你加上多少文件夹，到最后Jekyll都会自动对他们进行转换，最后生成完整的网站到&lt;strong&gt;_site&lt;/strong&gt;文件夹中。
-=======
-&amp;gt;&amp;gt;&amp;gt;&amp;gt;&amp;gt;&amp;gt;&amp;gt; 8a28d5c3ef8f88df8794ba8064b373b6de5ef386&lt;/li&gt;
+剩下两个就很好理解，整个网页的css样式表，和图片资源，如果需要，你还可以加上js文件夹等等，无论你加上多少文件夹，到最后Jekyll都会自动对他们进行转换，最后生成完整的网站到&lt;strong&gt;_site&lt;/strong&gt;文件夹中。&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;blockquote&gt;
@@ -68,7 +65,40 @@ $ jekyll serve
 &lt;/blockquote&gt;
 
 &lt;h1&gt;关于配置文件&lt;/h1&gt;
-</description>
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;c&quot;&gt;# Site settings&lt;/span&gt;
+title: &lt;span class=&quot;s2&quot;&gt;&amp;quot;codeGlider&amp;#39;s blog&amp;quot;&lt;/span&gt;
+description: &lt;span class=&quot;s2&quot;&gt;&amp;quot;Do not go gentle into that good night...&amp;quot;&lt;/span&gt;
+baseurl: &lt;span class=&quot;s2&quot;&gt;&amp;quot;&amp;quot;&lt;/span&gt;
+url: &lt;span class=&quot;s2&quot;&gt;&amp;quot;http://ShyHornet.github.io&amp;quot;&lt;/span&gt;
+
+&lt;span class=&quot;c&quot;&gt;# Build settings&lt;/span&gt;
+markdown: redcarpet
+permalink: pretty
+highlighter: pygments
+paginate: 3
+
+&lt;span class=&quot;c&quot;&gt;# Links&lt;/span&gt;
+links:
+  - title: &lt;span class=&quot;s2&quot;&gt;&amp;quot;Home&amp;quot;&lt;/span&gt;
+    url: /
+  - title: &lt;span class=&quot;s2&quot;&gt;&amp;quot;About&amp;quot;&lt;/span&gt;
+    url: /about
+  - title: &lt;span class=&quot;s2&quot;&gt;&amp;quot;简书&amp;quot;&lt;/span&gt;
+    url: http://www.jianshu.com/users/3007ce57abd3/latest_articles
+  - title: &lt;span class=&quot;s2&quot;&gt;&amp;quot;github&amp;quot;&lt;/span&gt;
+    url: http://github.com/ShyHornet
+  - title: &lt;span class=&quot;s2&quot;&gt;&amp;quot;订阅&amp;quot;&lt;/span&gt;
+    url: /feed.xml
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;这是我的配置文件，实际上这些都是可以自己定义的全局变量，然后你在网站的各个地方都可以使用上面所提到的&lt;code&gt;Liquid&lt;/code&gt;代码引用,所有该文件中定义的变量都可以使用&lt;code&gt;site.#&lt;/code&gt;的形式来引用。
+像下面这样:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-html&quot; data-lang=&quot;html&quot;&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;pageTitle center&amp;quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;a&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;style=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;color: #000;&amp;quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;href=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;/&amp;quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;codeGlider&amp;#39;s blog&lt;span class=&quot;nt&quot;&gt;&amp;lt;/a&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;p&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;sub-title&amp;quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+    Don&amp;#39;t go gently into that good night...
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/p&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
         <pubDate>Thu, 15 Oct 2015 00:00:00 +0800</pubDate>
         <link>http://ShyHornet.github.io/2015/10/15/%E7%AC%AC%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0/</link>
         <guid isPermaLink="true">http://ShyHornet.github.io/2015/10/15/%E7%AC%AC%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0/</guid>
