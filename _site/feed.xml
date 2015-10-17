@@ -31,6 +31,7 @@ $ jekyll serve
 &lt;p&gt;在浏览器中输入&lt;strong&gt;localhost:4000&lt;/strong&gt;即可观看效果:&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;https://raw.githubusercontent.com/ShyHornet/ShyHornet.github.io/master/images/post/2015-10-15-1.png&quot; alt=&quot;初始网站&quot;&gt;
+&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt; HEAD
 我们来看一眼基本的Jekyll的一般目录结构:&lt;/p&gt;
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;.
 ├── _config.yml
@@ -57,7 +58,9 @@ $ jekyll serve
 &lt;li&gt;&lt;strong&gt;_includes&lt;/strong&gt;目录中包含的html文件可以作为模块来加载,比如加载&lt;code&gt;footer.html&lt;/code&gt;可以使用标签&lt;code&gt;{&lt;/code&gt;&lt;code&gt;%&lt;/code&gt;  &lt;code&gt;%&lt;/code&gt;&lt;code&gt;}&lt;/code&gt;将代码&lt;code&gt;include footer.html&lt;/code&gt;包裹其中来加载,这些代码被称作&lt;a href=&quot;https://themes.shopify.com&quot;&gt;Liquid&lt;/a&gt;代码，在Jekyll中大量使用这种语法&lt;/li&gt;
 &lt;li&gt;正如上面所说&lt;strong&gt;_posts&lt;/strong&gt;中放的是发布的文章，不过格式一定要符合&lt;code&gt;年-月-日-标题.md&lt;/code&gt;否则会有错误。&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;_layouts&lt;/strong&gt;这里存放文章的模板,&lt;strong&gt;default.html&lt;/strong&gt;是整个网站的框架，&lt;strong&gt;post.html&lt;/strong&gt;则是单个文章的模板。
-剩下两个就很好理解，整个网页的css样式表，和图片资源，如果需要，你还可以加上js文件夹等等，无论你加上多少文件夹，到最后Jekyll都会自动对他们进行转换，最后生成完整的网站到&lt;strong&gt;_site&lt;/strong&gt;文件夹中。&lt;/li&gt;
+剩下两个就很好理解，整个网页的css样式表，和图片资源，如果需要，你还可以加上js文件夹等等，无论你加上多少文件夹，到最后Jekyll都会自动对他们进行转换，最后生成完整的网站到&lt;strong&gt;_site&lt;/strong&gt;文件夹中。
+=======
+&amp;gt;&amp;gt;&amp;gt;&amp;gt;&amp;gt;&amp;gt;&amp;gt; 8a28d5c3ef8f88df8794ba8064b373b6de5ef386&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;blockquote&gt;
