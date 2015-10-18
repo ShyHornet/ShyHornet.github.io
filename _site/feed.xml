@@ -8,29 +8,27 @@
     
       <item>
         <title>Jekyll初探</title>
-        <description>&lt;p&gt;受到&lt;a href=&quot;http://www.jianshu.com/p/4fd3cb0a11da&quot;&gt;野子Joey的文章&lt;/a&gt;的启发，我也开始研究&lt;strong&gt;Jekyll&lt;/strong&gt;了!
-在研究过程中遇到了不少问题，但是在折腾的过程中也锻炼了前端开发能力，而且看着自己的博客一点一点成型，最后运行在&lt;strong&gt;github&lt;/strong&gt;上，确实很有成就感!。
+        <description>&lt;p&gt;受到&lt;a href=&quot;http://www.jianshu.com/p/4fd3cb0a11da&quot;&gt;野子Joey的文章&lt;/a&gt;的启发，我也开始研究&lt;strong&gt;Jekyll&lt;/strong&gt;了!&lt;br&gt;
+在研究过程中遇到了不少问题，但是在折腾的过程中也锻炼了前端开发能力，而且看着自己的博客一点一点成型，最后运行在&lt;strong&gt;github&lt;/strong&gt;上，确实很有成就感!。&lt;br&gt;
 昨天初步建立了自己的&lt;strong&gt;Jekyll&lt;/strong&gt;博客,研究了一整天Jkeyll的工作原理和如何进行各种个性化设置。&lt;/p&gt;
 
-&lt;h1&gt;首先是安装&lt;/h1&gt;
+&lt;h1 id=&quot;首先是安装&quot;&gt;首先是安装&lt;/h1&gt;
 
 &lt;p&gt;这一步很简单,只需在终端输入:&lt;/p&gt;
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;sudo gem install jekyll
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;创建一个简单的博客并运行:
-&lt;code&gt;bash
-$ jekyll new helloJekyll
-$ cd helloJkeyll
-$ jekyll serve
-&lt;/code&gt;&lt;/p&gt;
-
+&lt;p&gt;创建一个简单的博客并运行:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;jekyll new helloJekyll
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;cd &lt;/span&gt;helloJkeyll
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;jekyll serve
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;blockquote&gt;
 &lt;p&gt;serve 还可以加上参数 -w 这样修改网站后可以自动更改，刷新后反映到浏览器中&lt;/p&gt;
 &lt;/blockquote&gt;
 
 &lt;p&gt;在浏览器中输入&lt;strong&gt;localhost:4000&lt;/strong&gt;即可观看效果:&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;https://raw.githubusercontent.com/ShyHornet/ShyHornet.github.io/master/images/post/2015-10-15-1.png&quot; alt=&quot;初始网站&quot;&gt;
+&lt;p&gt;&lt;img src=&quot;https://raw.githubusercontent.com/ShyHornet/ShyHornet.github.io/master/images/post/2015-10-15-1.png&quot; alt=&quot;初始网站&quot;&gt;&lt;br&gt;
 我们来看一眼基本的Jekyll的一般目录结构:&lt;/p&gt;
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;.
 ├── _config.yml
@@ -53,9 +51,9 @@ $ jekyll serve
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;_config.yml&lt;/strong&gt;用来保存一些配置数据;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;_drafts&lt;/strong&gt;目录用来存储草稿，与已经发布的文章不同，这是没有日期的文章，在运行&lt;code&gt;jekyll serve&lt;/code&gt;会自动赋予当前日期。已经发布的文章在&lt;strong&gt;_posts&lt;/strong&gt;目录下。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;_includes&lt;/strong&gt;目录中包含的html文件可以作为模块来加载,比如加载&lt;code&gt;footer.html&lt;/code&gt;可以使用标签&lt;code&gt;{&lt;/code&gt;&lt;code&gt;%&lt;/code&gt;  &lt;code&gt;%&lt;/code&gt;&lt;code&gt;}&lt;/code&gt;将代码&lt;code&gt;include footer.html&lt;/code&gt;包裹其中来加载,这些代码被称作&lt;a href=&quot;https://themes.shopify.com&quot;&gt;Liquid&lt;/a&gt;代码，在Jekyll中大量使用这种语法&lt;/li&gt;
-&lt;li&gt;正如上面所说&lt;strong&gt;_posts&lt;/strong&gt;中放的是发布的文章，不过格式一定要符合&lt;code&gt;年-月-日-标题.md&lt;/code&gt;否则会有错误。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;_drafts&lt;/strong&gt;目录用来存储草稿，与已经发布的文章不同，这是没有日期的文章，在运行&lt;code class=&quot;prettyprint&quot;&gt;jekyll serve&lt;/code&gt;会自动赋予当前日期。已经发布的文章在&lt;strong&gt;_posts&lt;/strong&gt;目录下。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;_includes&lt;/strong&gt;目录中包含的html文件可以作为模块来加载,比如加载&lt;code class=&quot;prettyprint&quot;&gt;footer.html&lt;/code&gt;可以使用标签&lt;code class=&quot;prettyprint&quot;&gt;{&lt;/code&gt;&lt;code class=&quot;prettyprint&quot;&gt;%&lt;/code&gt;  &lt;code class=&quot;prettyprint&quot;&gt;%&lt;/code&gt;&lt;code class=&quot;prettyprint&quot;&gt;}&lt;/code&gt;将代码&lt;code class=&quot;prettyprint&quot;&gt;include footer.html&lt;/code&gt;包裹其中来加载,这些代码被称作&lt;a href=&quot;https://themes.shopify.com&quot;&gt;Liquid&lt;/a&gt;代码，在Jekyll中大量使用这种语法&lt;/li&gt;
+&lt;li&gt;正如上面所说&lt;strong&gt;_posts&lt;/strong&gt;中放的是发布的文章，不过格式一定要符合&lt;code class=&quot;prettyprint&quot;&gt;年-月-日-标题.md&lt;/code&gt;否则会有错误。&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;_layouts&lt;/strong&gt;这里存放文章的模板,&lt;strong&gt;default.html&lt;/strong&gt;是整个网站的框架，&lt;strong&gt;post.html&lt;/strong&gt;则是单个文章的模板。
 剩下两个就很好理解，整个网页的css样式表，和图片资源，如果需要，你还可以加上js文件夹等等，无论你加上多少文件夹，到最后Jekyll都会自动对他们进行转换，最后生成完整的网站到&lt;strong&gt;_site&lt;/strong&gt;文件夹中。&lt;/li&gt;
 &lt;/ul&gt;
@@ -64,7 +62,7 @@ $ jekyll serve
 &lt;p&gt;所以在修改网站内容的时候，不要去修改&lt;strong&gt;_site&lt;/strong&gt;文件夹里的内容，否则一旦网站运行起来，Jekyll会更新&lt;strong&gt;_site&lt;/strong&gt;文件夹，修改会被重置。&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;h1&gt;关于配置文件&lt;/h1&gt;
+&lt;h1 id=&quot;关于配置文件&quot;&gt;关于配置文件&lt;/h1&gt;
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;c&quot;&gt;# Site settings&lt;/span&gt;
 title: &lt;span class=&quot;s2&quot;&gt;&amp;quot;codeGlider&amp;#39;s blog&amp;quot;&lt;/span&gt;
 description: &lt;span class=&quot;s2&quot;&gt;&amp;quot;Do not go gentle into that good night...&amp;quot;&lt;/span&gt;
@@ -90,7 +88,7 @@ links:
   - title: &lt;span class=&quot;s2&quot;&gt;&amp;quot;订阅&amp;quot;&lt;/span&gt;
     url: /feed.xml
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;这是我的配置文件，实际上这些都是可以自己定义的全局变量，然后你在网站的各个地方都可以使用上面所提到的&lt;code&gt;Liquid&lt;/code&gt;代码引用,所有该文件中定义的变量都可以使用&lt;code&gt;site.#&lt;/code&gt;的形式来引用。
+&lt;p&gt;这是我的配置文件，实际上这些都是可以自己定义的全局变量，然后你在网站的各个地方都可以使用上面所提到的&lt;code class=&quot;prettyprint&quot;&gt;Liquid&lt;/code&gt;代码引用,所有该文件中定义的变量都可以使用&lt;code class=&quot;prettyprint&quot;&gt;site.#&lt;/code&gt;的形式来引用。&lt;br&gt;
 像下面这样:&lt;/p&gt;
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-html&quot; data-lang=&quot;html&quot;&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;pageTitle center&amp;quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
     &lt;span class=&quot;nt&quot;&gt;&amp;lt;a&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;style=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;color: #000;&amp;quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;href=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;`{``{` site.baseurl `}``}`/&amp;quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;`{``{ site.title `}`}`&lt;span class=&quot;nt&quot;&gt;&amp;lt;/a&amp;gt;&lt;/span&gt;
@@ -100,10 +98,10 @@ links:
 &lt;span class=&quot;nt&quot;&gt;&amp;lt;/p&amp;gt;&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;blockquote&gt;
-&lt;p&gt;代码取自本站源码,&lt;code&gt;{&lt;/code&gt;都被我用``包了起来，否则就会渲染出这些变量的值了&lt;/p&gt;
+&lt;p&gt;代码取自本站源码,&lt;code class=&quot;prettyprint&quot;&gt;{&lt;/code&gt;都被我用``包了起来，否则就会渲染出这些变量的值了&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;p&gt;注意到&lt;code&gt;Links&lt;/code&gt;，个人理解相当于定义一个数组，数组元素是字典，可以通过内嵌&lt;code&gt;for&lt;/code&gt;循环来得到他们的值:&lt;/p&gt;
+&lt;p&gt;注意到&lt;code class=&quot;prettyprint&quot;&gt;Links&lt;/code&gt;，个人理解相当于定义一个数组，数组元素是结构体，可以通过内嵌&lt;code class=&quot;prettyprint&quot;&gt;for&lt;/code&gt;循环来得到他们的值:&lt;/p&gt;
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;`{``%` for link in site.links `%``}`
 &amp;lt;li&amp;gt;
     &amp;lt;a class=&amp;quot;page-link&amp;quot; href=&amp;quot;`{``{` link.url | prepend: site.baseurl `}``}`&amp;quot;&amp;gt;`{``{` link.title `}``}`&amp;lt;/a&amp;gt;
@@ -131,7 +129,19 @@ links:
     &lt;span class=&quot;nt&quot;&gt;&amp;lt;a&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;page-link&amp;quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;href=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;/feed.xml&amp;quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;订阅&lt;span class=&quot;nt&quot;&gt;&amp;lt;/a&amp;gt;&lt;/span&gt;
 &lt;span class=&quot;nt&quot;&gt;&amp;lt;/li&amp;gt;&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;这其实就是网站的导航部分。&lt;/p&gt;
+&lt;p&gt;这其实就是网站的导航部分,&lt;a href=&quot;https://raw.githubusercontent.com/ShyHornet/ShyHornet.github.io/master/_includes/header.html&quot;&gt;源码地址&lt;/a&gt;。以下有一些常用的变量:&lt;/p&gt;
+
+&lt;table&gt;&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&quot;text-align: center&quot;&gt;Header One&lt;/th&gt;
+&lt;th style=&quot;text-align: center&quot;&gt;Header Two&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&quot;text-align: center&quot;&gt;Item One&lt;/td&gt;
+&lt;td style=&quot;text-align: center&quot;&gt;Item Two&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;&lt;/table&gt;
 </description>
         <pubDate>Thu, 15 Oct 2015 00:00:00 +0800</pubDate>
         <link>http://ShyHornet.github.io/2015/10/15/%E7%AC%AC%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0/</link>
@@ -140,8 +150,8 @@ links:
     
       <item>
         <title>欢迎访问我的博客!</title>
-        <description>&lt;p&gt;经过一天的钻研，终于建立了自己的私人博客，使用&lt;a href=&quot;http://jekyllrb.com&quot;&gt;Jekyll&lt;/a&gt;(我发现了汉化版的官网，虽然有部分文字没有汉化，但是也比原文好读得多&lt;a href=&quot;http://jekyllcn.com&quot;&gt;Jekyll汉化版官网&lt;/a&gt;)
-创建和发布博客,使用&lt;a href=&quot;https://pages.github.com&quot;&gt;github-pages&lt;/a&gt;来作为网站服务器,真的非常方便而且有趣，而且在你倒腾的过程中，也学习了网页开发，可谓一举两得！
+        <description>&lt;p&gt;经过一天的钻研，终于建立了自己的私人博客，使用&lt;a href=&quot;http://jekyllrb.com&quot;&gt;Jekyll&lt;/a&gt;(我发现了汉化版的官网，虽然有部分文字没有汉化，但是也比原文好读得多&lt;a href=&quot;http://jekyllcn.com&quot;&gt;Jekyll汉化版官网&lt;/a&gt;)&lt;br&gt;
+创建和发布博客,使用&lt;a href=&quot;https://pages.github.com&quot;&gt;github-pages&lt;/a&gt;来作为网站服务器,真的非常方便而且有趣，而且在你倒腾的过程中，也学习了网页开发，可谓一举两得！&lt;br&gt;
 此网站的建立受到了&lt;a href=&quot;http://www.jianshu.com/p/4fd3cb0a11da&quot;&gt;野子Joey的文章&lt;/a&gt;的启发,还有&lt;a href=&quot;http://zhangwenli.com/&quot;&gt;张雯丽博客&lt;/a&gt;(代码在&lt;a href=&quot;https://github.com/Ovilia/blog&quot;&gt;github&lt;/a&gt;上)的强烈启发！非常感谢！&lt;/p&gt;
 </description>
         <pubDate>Wed, 14 Oct 2015 00:00:00 +0800</pubDate>

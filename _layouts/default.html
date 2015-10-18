@@ -7,18 +7,23 @@
   {% include head.html %}
 
     <body>
+      <div id="content-div">
+          <div class="rotLeft rotTop pageBack"></div>
+          <div class="rotRight rotTop pageBack"></div>
 
-      <div class="container">
+          <div class="container page">
 
-        {% include header.html %}
+            {% include header.html %}
 
-        {{ content }}
+            {{ content }}
 
-        {% include footer.html %}
+            {% include footer.html %}
 
 
-      </div>
-
+          </div>
+          <div class="rotLeft rotBottom pageBack"></div>
+          <div class="rotRight rotBottom pageBack"></div>
+    </div>
     </body>
   {% include musicPanle.html %}
 </html>

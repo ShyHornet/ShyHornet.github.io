@@ -16,6 +16,7 @@ $ sudo gem install jekyll
 ```
 
 创建一个简单的博客并运行:
+
 ```bash
 $ jekyll new helloJekyll
 $ cd helloJkeyll
@@ -101,7 +102,7 @@ links:
 
 >代码取自本站源码,`{`都被我用``包了起来，否则就会渲染出这些变量的值了
 
-注意到`Links`，个人理解相当于定义一个数组，数组元素是字典，可以通过内嵌`for`循环来得到他们的值:
+注意到`Links`，个人理解相当于定义一个数组，数组元素是结构体，可以通过内嵌`for`循环来得到他们的值:
 
 ```
 `{``%` for link in site.links `%``}`
@@ -122,4 +123,9 @@ links:
 {% endfor %}
 
 ```
-这其实就是网站的导航部分。
+
+这其实就是网站的导航部分,[源码地址](https://raw.githubusercontent.com/ShyHornet/ShyHornet.github.io/master/_includes/header.html)。以下有一些常用的变量:
+
+| Header One     | Header Two     |
+| :-------------:| :-------------:|
+| Item One       | Item Two       |
