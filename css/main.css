@@ -71,7 +71,7 @@ display: inline-block;
 }
 #content-div{
 margin: 0 auto;
-width: 90%;
+width: 100%;
 max-width: 1000px;
 
 }
@@ -297,7 +297,11 @@ border-color: #c00;
 }
 @media screen and (max-device-width: 600px)
 {
-    body{width:100%;margin:0;padding:0;max-width:600px}
+    body{
+
+      margin:0;
+      padding:0;
+      max-width:600px}
     p{width:100%;line-height:1.2em;font-size:1em}
     h1{font-size:1.1em}
     h2{font-size:1.0em}
