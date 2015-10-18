@@ -131,7 +131,7 @@ img.pen:hover{
 #music-control.on+#music-content
 {display:block}
 #music-control:hover{background-color:#ab466a}
-#music-content{position:fixed;bottom:-53px;right:60px;display:none}
+#music-content{position:fixed;bottom:-53px;right:70px;display:none}
 .tag{
   font-size: 1.2em;
 color: black;
