@@ -301,15 +301,19 @@ border-color: #c00;
 
       margin:0;
       padding:0;
+      margin-bottom: 50px;
       max-width:600px}
     p{width:100%;line-height:1.2em;font-size:1em}
     h1{font-size:1.1em}
     h2{font-size:1.0em}
     h3{font-size:0.9em}
     #contentDiv{padding:0;margin:0;width:100%;overflow:hidden}
-    .container{padding:40px 2%}
-    .page,.pageBack{margin-top:0;margin-bottom:40px}.pageBack{display:none}
-    .highlight, blockquote{padding:15px;border-width:0px 1px 0px 3px}
+    .container{padding:40px 40px -20px 2%}
+    .page,.pageBack{margin-top:0;margin-bottom:40px}
+    .pageBack{display:none}
+    .highlight, blockquote{
+      padding:15px;
+      border-width:0px 1px 0px 3px}
     img.pen{
         margin-left: 30%;
         width: 50%;
@@ -330,7 +334,7 @@ font-size: 1.0em;
                 #music-control{display:block;
                   position:fixed;
                   bottom:10px;
-                  right:10px;
+                  right:30px;
                   width:50px;
                   height:50px;
                   border-radius:25px;
@@ -340,6 +344,7 @@ font-size: 1.0em;
                 #music-control.on+#music-content{display:block}
                 #music-control:hover{background-color:#ab466a}
                 #music-content{position:fixed;bottom:-53px;right:60px;display:none}
+
 }
 .recent-comment{
   margin-top: 50px;
