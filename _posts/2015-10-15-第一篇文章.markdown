@@ -104,7 +104,7 @@ links:
 
 注意到`Links`，个人理解相当于定义一个数组，数组元素是结构体，可以通过内嵌`for`循环来得到他们的值:
 
-```
+```html
 `{``%` for link in site.links `%``}`
 <li>
     <a class="page-link" href="`{``{` link.url | prepend: site.baseurl `}``}`">`{``{` link.title `}``}`</a>

@@ -271,9 +271,21 @@ h3 {
   border-width: 0px 1px 0px 7px;
   font-size: 1em;
 }
-code{
-border-radius: 5px;
-padding: 0px 5px 0px 5px;
+li>code,p>code{
+color: #C00;
+    background-color: #F5F5F5;
+    font-weight: bold;
+}
+pre>code{
+display: block;
+overflow-x: auto;
+margin: 2px 0;
+word-wrap: normal;
+
+}
+pre{
+  display: block;
+margin:0;
 
 }
 strong{

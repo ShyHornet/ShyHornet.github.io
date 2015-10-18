@@ -102,10 +102,10 @@ links:
 &lt;/blockquote&gt;
 
 &lt;p&gt;注意到&lt;code class=&quot;prettyprint&quot;&gt;Links&lt;/code&gt;，个人理解相当于定义一个数组，数组元素是结构体，可以通过内嵌&lt;code class=&quot;prettyprint&quot;&gt;for&lt;/code&gt;循环来得到他们的值:&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;`{``%` for link in site.links `%``}`
-&amp;lt;li&amp;gt;
-    &amp;lt;a class=&amp;quot;page-link&amp;quot; href=&amp;quot;`{``{` link.url | prepend: site.baseurl `}``}`&amp;quot;&amp;gt;`{``{` link.title `}``}`&amp;lt;/a&amp;gt;
-&amp;lt;/li&amp;gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-html&quot; data-lang=&quot;html&quot;&gt;`{``%` for link in site.links `%``}`
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;li&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;a&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;page-link&amp;quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;href=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;`{``{` link.url | prepend: site.baseurl `}``}`&amp;quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;`{``{` link.title `}``}`&lt;span class=&quot;nt&quot;&gt;&amp;lt;/a&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/li&amp;gt;&lt;/span&gt;
 `{``%` endfor `%``}`
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;渲染后:&lt;/p&gt;
