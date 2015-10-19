@@ -71,7 +71,6 @@ display: inline-block;
 }
 #content-div{
 margin: 0 auto;
-width: 90%;
 max-width: 1000px;
 
 }
@@ -307,6 +306,10 @@ border-color: #c00;
 
 
 }
+@@media screen and (max-width:600px)
+{
+    #contentDiv{padding:0;margin:0;width:100%;overflow:hidden}
+}
 @media screen and (max-device-width: 600px)
 {
     body{
@@ -316,7 +319,7 @@ border-color: #c00;
 
     }
     p{width:100%;line-height:1.1em;font-size:1em}
-    h1{font-size:1.1em}
+    h1{font-size:1.1em;border-top: 2px dashed #C00;}
     h2{font-size:1.0em}
     h3{font-size:0.9em}
     #contentDiv{padding:0;margin:0;width:100%;overflow:hidden}
@@ -338,6 +341,11 @@ font-size: 1.1em;
     .page-link{
 font-size: 1.0em;
 
+    }
+    .tag{
+      font-size: 1.0em;
+      min-width: 35px;
+      padding: 5px 15px 5px 15px;
     }
     .sub-title{
       font-size: 1.0em;
