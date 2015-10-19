@@ -10,7 +10,7 @@
     <title>Jekyll初探</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Do not go gentle into that good night...">
-    <link rel="canonical" href="http://ShyHornet.github.io/2015/10/15/%E7%AC%AC%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0/">
+    <link rel="canonical" href="http://ShyHornet.github.io/2015/10/18/%E7%AC%AC%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0/">
 
     <!-- Custom CSS -->
     <link rel="stylesheet" href="/css/main.css">
@@ -20,6 +20,8 @@
     <script type="text/javascript" src="/js/jquery-2.1.4.min.js" >
     </script>
     <script type="text/javascript" src="/js/common.js" >
+    </script>
+    <script src="/js/jCorner.min.js" type="text/javascript">
     </script>
 
 </head>
@@ -74,15 +76,25 @@
             
         </ul>
     </div>
-    <p>我是一个iOS自由开发者，本站的开发纯属是个人兴趣，会发布一些iOS的技术分享和前端的学习分享，本站使用<Strong><a href="https://pages.github.com">github-pages</a></Strong>和<Strong><a href="http://jekyllrb.com">Jekyll</a></Strong>,源码在github上,欢迎大家点星星哈~ <iframe style="margin-top:10px;" src="https://ghbtns.com/github-btn.html?user=ShyHornet&repo=ShyHornet.github.io&type=star&count=true&size=large" frameborder="0" scrolling="0" width="160px" height="30px"></iframe></center></p>
+    <p >我是一个iOS自由开发者，本站的开发纯属是个人兴趣，会发布一些iOS的技术分享和前端的学习分享，本站使用<Strong><a href="https://pages.github.com">github-pages</a></Strong>和<Strong><a href="http://jekyllrb.com">Jekyll</a></Strong>,源码在github上,欢迎大家点星星哈~ <iframe style="margin-top:10px;" src="https://ghbtns.com/github-btn.html?user=ShyHornet&repo=ShyHornet.github.io&type=star&count=true&size=large" frameborder="0" scrolling="0" width="160px" height="30px"></iframe></center></p>
+  
 </div>
 
 
             <div class="post">
+  <script type="text/javascript">
+  (function() {
+    $('blockquote').wrap(document.getElementsByTagName('paper'));
+  })();
+    (function() {
 
+      $('#paper').jCorner();
+    })();
+    </script>
   <header class="post-header">
     <h1>Jekyll初探</h1>
   </header>
+
   
 
   <a class="tag">front-end</a>
@@ -102,12 +114,12 @@
 
   <a class="tag">Jkeyll</a>
   
-  <p class="meta">15 Oct 2015</p>
+  <p class="meta">18 Oct 2015</p>
 
   <article class="post-content">
   <p>受到<a href="http://www.jianshu.com/p/4fd3cb0a11da">野子Joey的文章</a>的启发，我也开始研究<strong>Jekyll</strong>了!<br>
 在研究过程中遇到了不少问题，但是在折腾的过程中也锻炼了前端开发能力，而且看着自己的博客一点一点成型，最后运行在<strong>github</strong>上，确实很有成就感!。<br>
-昨天初步建立了自己的<strong>Jekyll</strong>博客,研究了一整天Jkeyll的工作原理和如何进行各种个性化设置。</p>
+目前初步建立了自己的<strong>Jekyll</strong>博客,研究了好几天Jkeyll如何运作以及如何进行各种个性化设置。</p>
 
 <h1 id="首先是安装">首先是安装</h1>
 
@@ -125,8 +137,13 @@
 
 <p>在浏览器中输入<strong>localhost:4000</strong>即可观看效果:</p>
 
-<p><img src="https://raw.githubusercontent.com/ShyHornet/ShyHornet.github.io/master/images/post/2015-10-15-1.png" alt="初始网站"><br>
-我们来看一眼基本的Jekyll的一般目录结构:</p>
+<p><img src="https://raw.githubusercontent.com/ShyHornet/ShyHornet.github.io/master/images/post/2015-10-15-1.png" alt="初始网站"></p>
+
+<blockquote>
+<p>关于如何建立<code class="prettyprint">github</code>的网站，可以参照我开头提到的<a href="http://www.jianshu.com/p/4fd3cb0a11da">文章</a></p>
+</blockquote>
+
+<p>我们来看一眼基本的Jekyll的一般目录结构:</p>
 <div class="highlight"><pre><code class="language-bash" data-lang="bash">.
 ├── _config.yml
 ├── _drafts
@@ -226,23 +243,41 @@ links:
     <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">&quot;page-link&quot;</span> <span class="na">href=</span><span class="s">&quot;/feed.xml&quot;</span><span class="nt">&gt;</span>订阅<span class="nt">&lt;/a&gt;</span>
 <span class="nt">&lt;/li&gt;</span>
 </code></pre></div>
-<p>这其实就是网站的导航部分,<a href="https://raw.githubusercontent.com/ShyHornet/ShyHornet.github.io/master/_includes/header.html">源码地址</a>。以下有一些常用的变量:</p>
+<p>这其实就是网站的导航部分,<a href="https://raw.githubusercontent.com/ShyHornet/ShyHornet.github.io/master/_includes/header.html">源码地址</a>。</p>
 
-<table><thead>
-<tr>
-<th style="text-align: center">Header One</th>
-<th style="text-align: center">Header Two</th>
-</tr>
-</thead><tbody>
-<tr>
-<td style="text-align: center">Item One</td>
-<td style="text-align: center">Item Two</td>
-</tr>
-</tbody></table>
+<h1 id="关于写文章">关于写文章</h1>
+
+<p>所有文章的markdown文件存储在<strong>_posts</strong>文件夹下，只要将要发布文章的文章拖入这个文件夹就可以了，刷新网页之后你的文章就会出现，如上面所述，文件名要符合<code class="prettyprint">年-月-日-标题.md</code>的格式。<br>
+但是在写作的时候感觉到很不适应，因为其markdown语法和github，或简书上的markdown语法很不一样，比如代码高亮部分只能用以下形式:</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">`{``%` highlight language `%``}`
+your code....
+`{``%` endhighlight `%``}`
+</code></pre></div>
+<p>这是因为<code class="prettyprint">Jekyll</code>使用的<code class="prettyprint">markdown</code>解析器不太一样，默认使用<code class="prettyprint">kramdown</code>作为<code class="prettyprint">markdown</code>解析器。不过可以改成我们需要的markdown解析器，在<strong>_config.yml</strong>文件中可以指定<code class="prettyprint">markdown</code>解析器<br>
+<div id="paper"></p>
+
+<blockquote>
+<p>在<code class="prettyprint">Jekyll</code>中，默认有三种<code class="prettyprint">markdown</code>解析器:kramdown,redcarpet,rdiscount。<br>
+</div></p>
+</blockquote>
+
+<p>我发现redcarpet比较符合github和简书的<code class="prettyprint">markdown</code>语法，在<strong>_config.yml</strong>文件中将</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">markdown:kramdown
+</code></pre></div>
+<p>改为</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">markdown:redcarpet
+</code></pre></div>
+<p>工作还不算完，因为<code class="prettyprint">redcarpet</code>的<code class="prettyprint">markdown</code>格式还是有一些地方与<code class="prettyprint">github</code>风格的<code class="prettyprint">markdown</code>不相符,那么如何解决呢？别急，<code class="prettyprint">Jekyll</code>已经为我们想到了:<br>
+可以为<code class="prettyprint">redcarpet</code>增加一些扩展,具体的扩展列表在<code class="prettyprint">redcarpet</code>的<a href="https://github.com/vmg/redcarpet/blob/v2.2.2/README.markdown#and-its-like-really-simple-to-use">官方文档</a>中。<br>
+在配置文件中增加如下代码:</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">redcarpet:
+    extensions: [ &quot;hard_wrap&quot;,&quot;autolink&quot;, &quot;tables&quot;, &quot;strikethrough&quot;, &quot;superscript&quot;, &quot;with_toc_data&quot;, &quot;highlight&quot;, &quot;prettify&quot;,&quot;no_intra_emphasis&quot;]
+</code></pre></div>
+<p>现在，<code class="prettyprint">Jekyll</code>的<code class="prettyprint">markdown</code>格式就基本和<code class="prettyprint">github</code>和<code class="prettyprint">简书</code>中的<code class="prettyprint">markdown</code>格式相同了！</p>
 
   </article>
   <!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="/2015/10/15/第一篇文章" data-title="Jekyll初探" data-url="http://ShyHornet.github.io/2015/10/15/%E7%AC%AC%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0/"></div>
+	<div class="ds-thread" data-thread-key="/2015/10/18/第一篇文章" data-title="Jekyll初探" data-url="http://ShyHornet.github.io/2015/10/18/%E7%AC%AC%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0/"></div>
 <!-- 多说评论框 end -->
 <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 <script type="text/javascript">

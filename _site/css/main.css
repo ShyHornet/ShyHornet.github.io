@@ -260,15 +260,30 @@ h3 {
 }
 
 /* code blocks */
-.highlight,blockquote {
+.highlight {
   margin: 40px 0px;
   padding: 0px 20px;
-  background-color: #F5F5F5;
+  overflow: auto;
+  border-left: 5px solid #999999;
+  border-radius: 10px;
+  margin-left: 20px;
+  padding-left: 10px;
+  line-height: 1.4em;
+  /*background-color: #F5F5F5;*/
 
+  /*border-style: solid;*/
+  font-size: 1em;
+}
+blockquote{
+  background-color: #f5f5f5;
+  margin: 40px 0px;
+  padding: 1em 20px;
   border-style: solid;
   border-color: #999999;
   border-width: 0px 1px 0px 7px;
+
   font-size: 1em;
+
 }
 li>code,p>code{
 color: #C00;
@@ -278,13 +293,13 @@ color: #C00;
 pre>code{
 display: block;
 overflow-x: auto;
-margin: 2px 0;
 word-wrap: normal;
 
 }
 pre{
   display: block;
 margin:0;
+
 
 }
 strong{

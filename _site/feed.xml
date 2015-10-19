@@ -10,7 +10,7 @@
         <title>Jekyll初探</title>
         <description>&lt;p&gt;受到&lt;a href=&quot;http://www.jianshu.com/p/4fd3cb0a11da&quot;&gt;野子Joey的文章&lt;/a&gt;的启发，我也开始研究&lt;strong&gt;Jekyll&lt;/strong&gt;了!&lt;br&gt;
 在研究过程中遇到了不少问题，但是在折腾的过程中也锻炼了前端开发能力，而且看着自己的博客一点一点成型，最后运行在&lt;strong&gt;github&lt;/strong&gt;上，确实很有成就感!。&lt;br&gt;
-昨天初步建立了自己的&lt;strong&gt;Jekyll&lt;/strong&gt;博客,研究了一整天Jkeyll的工作原理和如何进行各种个性化设置。&lt;/p&gt;
+目前初步建立了自己的&lt;strong&gt;Jekyll&lt;/strong&gt;博客,研究了好几天Jkeyll如何运作以及如何进行各种个性化设置。&lt;/p&gt;
 
 &lt;h1 id=&quot;首先是安装&quot;&gt;首先是安装&lt;/h1&gt;
 
@@ -28,8 +28,13 @@
 
 &lt;p&gt;在浏览器中输入&lt;strong&gt;localhost:4000&lt;/strong&gt;即可观看效果:&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;https://raw.githubusercontent.com/ShyHornet/ShyHornet.github.io/master/images/post/2015-10-15-1.png&quot; alt=&quot;初始网站&quot;&gt;&lt;br&gt;
-我们来看一眼基本的Jekyll的一般目录结构:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://raw.githubusercontent.com/ShyHornet/ShyHornet.github.io/master/images/post/2015-10-15-1.png&quot; alt=&quot;初始网站&quot;&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;关于如何建立&lt;code class=&quot;prettyprint&quot;&gt;github&lt;/code&gt;的网站，可以参照我开头提到的&lt;a href=&quot;http://www.jianshu.com/p/4fd3cb0a11da&quot;&gt;文章&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;我们来看一眼基本的Jekyll的一般目录结构:&lt;/p&gt;
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;.
 ├── _config.yml
 ├── _drafts
@@ -129,23 +134,41 @@ links:
     &lt;span class=&quot;nt&quot;&gt;&amp;lt;a&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;page-link&amp;quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;href=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;/feed.xml&amp;quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;订阅&lt;span class=&quot;nt&quot;&gt;&amp;lt;/a&amp;gt;&lt;/span&gt;
 &lt;span class=&quot;nt&quot;&gt;&amp;lt;/li&amp;gt;&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;这其实就是网站的导航部分,&lt;a href=&quot;https://raw.githubusercontent.com/ShyHornet/ShyHornet.github.io/master/_includes/header.html&quot;&gt;源码地址&lt;/a&gt;。以下有一些常用的变量:&lt;/p&gt;
+&lt;p&gt;这其实就是网站的导航部分,&lt;a href=&quot;https://raw.githubusercontent.com/ShyHornet/ShyHornet.github.io/master/_includes/header.html&quot;&gt;源码地址&lt;/a&gt;。&lt;/p&gt;
 
-&lt;table&gt;&lt;thead&gt;
-&lt;tr&gt;
-&lt;th style=&quot;text-align: center&quot;&gt;Header One&lt;/th&gt;
-&lt;th style=&quot;text-align: center&quot;&gt;Header Two&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td style=&quot;text-align: center&quot;&gt;Item One&lt;/td&gt;
-&lt;td style=&quot;text-align: center&quot;&gt;Item Two&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;&lt;/table&gt;
+&lt;h1 id=&quot;关于写文章&quot;&gt;关于写文章&lt;/h1&gt;
+
+&lt;p&gt;所有文章的markdown文件存储在&lt;strong&gt;_posts&lt;/strong&gt;文件夹下，只要将要发布文章的文章拖入这个文件夹就可以了，刷新网页之后你的文章就会出现，如上面所述，文件名要符合&lt;code class=&quot;prettyprint&quot;&gt;年-月-日-标题.md&lt;/code&gt;的格式。&lt;br&gt;
+但是在写作的时候感觉到很不适应，因为其markdown语法和github，或简书上的markdown语法很不一样，比如代码高亮部分只能用以下形式:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;`{``%` highlight language `%``}`
+your code....
+`{``%` endhighlight `%``}`
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;这是因为&lt;code class=&quot;prettyprint&quot;&gt;Jekyll&lt;/code&gt;使用的&lt;code class=&quot;prettyprint&quot;&gt;markdown&lt;/code&gt;解析器不太一样，默认使用&lt;code class=&quot;prettyprint&quot;&gt;kramdown&lt;/code&gt;作为&lt;code class=&quot;prettyprint&quot;&gt;markdown&lt;/code&gt;解析器。不过可以改成我们需要的markdown解析器，在&lt;strong&gt;_config.yml&lt;/strong&gt;文件中可以指定&lt;code class=&quot;prettyprint&quot;&gt;markdown&lt;/code&gt;解析器&lt;br&gt;
+&lt;div id=&quot;paper&quot;&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;在&lt;code class=&quot;prettyprint&quot;&gt;Jekyll&lt;/code&gt;中，默认有三种&lt;code class=&quot;prettyprint&quot;&gt;markdown&lt;/code&gt;解析器:kramdown,redcarpet,rdiscount。&lt;br&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;我发现redcarpet比较符合github和简书的&lt;code class=&quot;prettyprint&quot;&gt;markdown&lt;/code&gt;语法，在&lt;strong&gt;_config.yml&lt;/strong&gt;文件中将&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;markdown:kramdown
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;改为&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;markdown:redcarpet
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;工作还不算完，因为&lt;code class=&quot;prettyprint&quot;&gt;redcarpet&lt;/code&gt;的&lt;code class=&quot;prettyprint&quot;&gt;markdown&lt;/code&gt;格式还是有一些地方与&lt;code class=&quot;prettyprint&quot;&gt;github&lt;/code&gt;风格的&lt;code class=&quot;prettyprint&quot;&gt;markdown&lt;/code&gt;不相符,那么如何解决呢？别急，&lt;code class=&quot;prettyprint&quot;&gt;Jekyll&lt;/code&gt;已经为我们想到了:&lt;br&gt;
+可以为&lt;code class=&quot;prettyprint&quot;&gt;redcarpet&lt;/code&gt;增加一些扩展,具体的扩展列表在&lt;code class=&quot;prettyprint&quot;&gt;redcarpet&lt;/code&gt;的&lt;a href=&quot;https://github.com/vmg/redcarpet/blob/v2.2.2/README.markdown#and-its-like-really-simple-to-use&quot;&gt;官方文档&lt;/a&gt;中。&lt;br&gt;
+在配置文件中增加如下代码:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;redcarpet:
+    extensions: [ &amp;quot;hard_wrap&amp;quot;,&amp;quot;autolink&amp;quot;, &amp;quot;tables&amp;quot;, &amp;quot;strikethrough&amp;quot;, &amp;quot;superscript&amp;quot;, &amp;quot;with_toc_data&amp;quot;, &amp;quot;highlight&amp;quot;, &amp;quot;prettify&amp;quot;,&amp;quot;no_intra_emphasis&amp;quot;]
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;现在，&lt;code class=&quot;prettyprint&quot;&gt;Jekyll&lt;/code&gt;的&lt;code class=&quot;prettyprint&quot;&gt;markdown&lt;/code&gt;格式就基本和&lt;code class=&quot;prettyprint&quot;&gt;github&lt;/code&gt;和&lt;code class=&quot;prettyprint&quot;&gt;简书&lt;/code&gt;中的&lt;code class=&quot;prettyprint&quot;&gt;markdown&lt;/code&gt;格式相同了！&lt;/p&gt;
 </description>
-        <pubDate>Thu, 15 Oct 2015 00:00:00 +0800</pubDate>
-        <link>http://ShyHornet.github.io/2015/10/15/%E7%AC%AC%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0/</link>
-        <guid isPermaLink="true">http://ShyHornet.github.io/2015/10/15/%E7%AC%AC%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0/</guid>
+        <pubDate>Sun, 18 Oct 2015 00:00:00 +0800</pubDate>
+        <link>http://ShyHornet.github.io/2015/10/18/%E7%AC%AC%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0/</link>
+        <guid isPermaLink="true">http://ShyHornet.github.io/2015/10/18/%E7%AC%AC%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0/</guid>
       </item>
     
       <item>

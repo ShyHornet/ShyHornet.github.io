@@ -7,7 +7,8 @@ excerpt: 受到野子Joey的文章的启发，我也开始研究Jkeyll了! 在�
 
 受到[野子Joey的文章](http://www.jianshu.com/p/4fd3cb0a11da)的启发，我也开始研究**Jekyll**了!
 在研究过程中遇到了不少问题，但是在折腾的过程中也锻炼了前端开发能力，而且看着自己的博客一点一点成型，最后运行在**github**上，确实很有成就感!。
-昨天初步建立了自己的**Jekyll**博客,研究了一整天Jkeyll的工作原理和如何进行各种个性化设置。
+目前初步建立了自己的**Jekyll**博客,研究了好几天Jkeyll如何运作以及如何进行各种个性化设置。
+
 #首先是安装
 这一步很简单,只需在终端输入:
 
@@ -28,6 +29,8 @@ $ jekyll serve
 在浏览器中输入<strong>localhost:4000</strong>即可观看效果:
 
 ![初始网站](https://raw.githubusercontent.com/ShyHornet/ShyHornet.github.io/master/images/post/2015-10-15-1.png)
+>关于如何建立`github`的网站，可以参照我开头提到的[文章](http://www.jianshu.com/p/4fd3cb0a11da)
+
 我们来看一眼基本的Jekyll的一般目录结构:
 
 ```bash
@@ -123,9 +126,37 @@ links:
 {% endfor %}
 
 ```
+这其实就是网站的导航部分,[源码地址](https://raw.githubusercontent.com/ShyHornet/ShyHornet.github.io/master/_includes/header.html)。
+#关于写文章
+所有文章的markdown文件存储在**_posts**文件夹下，只要将要发布文章的文章拖入这个文件夹就可以了，刷新网页之后你的文章就会出现，如上面所述，文件名要符合`年-月-日-标题.md`的格式。
+但是在写作的时候感觉到很不适应，因为其markdown语法和github，或简书上的markdown语法很不一样，比如代码高亮部分只能用以下形式:
 
-这其实就是网站的导航部分,[源码地址](https://raw.githubusercontent.com/ShyHornet/ShyHornet.github.io/master/_includes/header.html)。以下有一些常用的变量:
+```
+`{``%` highlight language `%``}`
+your code....
+`{``%` endhighlight `%``}`
+```
+这是因为`Jekyll`使用的`markdown`解析器不太一样，默认使用`kramdown`作为`markdown`解析器。不过可以改成我们需要的markdown解析器，在**_config.yml**文件中可以指定`markdown`解析器
+<div id="paper">
+>在`Jekyll`中，默认有三种`markdown`解析器:kramdown,redcarpet,rdiscount。
+</div>
 
-| Header One     | Header Two     |
-| :-------------:| :-------------:|
-| Item One       | Item Two       |
+我发现redcarpet比较符合github和简书的`markdown`语法，在**_config.yml**文件中将
+
+```
+markdown:kramdown
+```
+改为
+
+```
+markdown:redcarpet
+```
+工作还不算完，因为`redcarpet`的`markdown`格式还是有一些地方与`github`风格的`markdown`不相符,那么如何解决呢？别急，`Jekyll`已经为我们想到了:
+可以为`redcarpet`增加一些扩展,具体的扩展列表在`redcarpet`的[官方文档](https://github.com/vmg/redcarpet/blob/v2.2.2/README.markdown#and-its-like-really-simple-to-use)中。
+在配置文件中增加如下代码:
+
+```
+redcarpet:
+    extensions: [ "hard_wrap","autolink", "tables", "strikethrough", "superscript", "with_toc_data", "highlight", "prettify","no_intra_emphasis"]
+```
+现在，`Jekyll`的`markdown`格式就基本和`github`和`简书`中的`markdown`格式相同了！
