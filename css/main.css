@@ -16,9 +16,9 @@ body {
 
 
 .pageBack.rotTop.rotLeft {
-  margin-bottom: -250px;
+  margin-bottom: -270px;
   margin-top: 100px;
-  left: 70px;
+  left: 10px;
 }
 .pageBack.rotLeft {
   -webkit-transform: rotate(5deg);
@@ -53,7 +53,7 @@ body {
 .pageBack.rotBottom.rotRight {
   margin-top: -200px;
   margin-bottom: 100px;
-  left: 70px;
+  left: 10px;
 }
 .page, .pageBack {
   margin-top: 5em;
@@ -65,13 +65,13 @@ body {
 .container {
   background: #ffe;
   box-shadow: 0 0 10px 2px rgba(0,0,0,0.5);
-padding: 50px 80px;
+padding: 50px 50px;
 display: inline-block;
   width: 90%;
 }
 #content-div{
 margin: 0 auto;
-width: 100%;
+width: 90%;
 max-width: 1000px;
 
 }
@@ -310,17 +310,17 @@ border-color: #c00;
 @media screen and (max-device-width: 600px)
 {
     body{
-
+      width: 100%;
       margin:0;
       padding:0;
-      margin-bottom: 50px;
-      max-width:600px}
-    p{width:100%;line-height:1.2em;font-size:1em}
+
+    }
+    p{width:100%;line-height:1.1em;font-size:1em}
     h1{font-size:1.1em}
     h2{font-size:1.0em}
     h3{font-size:0.9em}
     #contentDiv{padding:0;margin:0;width:100%;overflow:hidden}
-    .container{padding:20px 20px 20px 2%}
+    .container{padding:20px 20px 20px 20px;}
     .page,.pageBack{margin-top:0;margin-bottom:40px}
     .pageBack{display:none}
     .highlight, blockquote{
