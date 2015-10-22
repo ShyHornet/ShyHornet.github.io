@@ -202,7 +202,7 @@ $ python
 ![屏幕快照 2015-10-22 下午12.34.26.png](https://raw.githubusercontent.com/ShyHornet/ShyHornet.github.io/master/images/post/屏幕快照%202015-10-22%20下午12.34.26.png)
 `borland`风格:
 
-![屏幕快照 2015-10-22 下午12.33.32.png](https://github.com/ShyHornet/ShyHornet.github.io/blob/master/images/post/屏幕快照%202015-10-22%20下午12.33.32.png)
+![屏幕快照 2015-10-22 下午12.33.32.png](https://raw.githubusercontent.com/ShyHornet/ShyHornet.github.io/master/images/post/屏幕快照%202015-10-22%20下午12.33.32.png)
 `colorful`风格:
 
-![屏幕快照 2015-10-22 下午12.51.42.png](https://github.com/ShyHornet/ShyHornet.github.io/blob/master/images/post/屏幕快照%202015-10-22%20下午12.51.42.png)
+![屏幕快照 2015-10-22 下午12.51.42.png](https://raw.githubusercontent.com/ShyHornet/ShyHornet.github.io/master/images/post/屏幕快照%202015-10-22%20下午12.51.42.png)
