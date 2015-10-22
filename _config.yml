@@ -3,6 +3,7 @@ title: "codeGlider's blog"
 description: "Do not go gentle into that good night..."
 baseurl: ""
 url: "http://ShyHornet.github.io"
+assetUrl: "https://raw.githubusercontent.com/ShyHornet/ShyHornet.github.io/master/images/post/"
 
 # Build settings
 markdown: redcarpet
