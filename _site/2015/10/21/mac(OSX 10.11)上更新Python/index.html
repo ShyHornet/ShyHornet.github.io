@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>如何在Mac(OSX 10.11)上更新Python</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Do not go gentle into that good night...">
+    <link rel="canonical" href="http://ShyHornet.github.io/2015/10/21/mac(OSX%2010.11)%E4%B8%8A%E6%9B%B4%E6%96%B0Python/">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/pygments.css">
+    <link href="/css/font.css" rel="stylesheet"  charset="utf-8">
+    <!-- Custom JS -->
+    <script type="text/javascript" src="/js/jquery-2.1.4.min.js" >
+    </script>
+    <script type="text/javascript" src="/js/common.js" >
+    </script>
+    <script src="/js/jCorner.min.js" type="text/javascript">
+    </script>
+
+</head>
+
+
+    <body>
+        <div id="music-panel">
+    <a id="music-control" href="javascript:;" onclick="toggleMusicPanel()"></a>
+    <div id="music-content">
+        <iframe  frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=450 src="http://music.163.com/outchain/player?type=0&id=116145968&auto=0&height=430"></iframe>
+    </div>
+</div>
+
+    </div>
+
+      <div id="content-div">
+          <div class="rotLeft rotTop pageBack"></div>
+          <div class="rotRight rotTop pageBack"></div>
+
+          <div class="container page">
+
+            <div class="header">
+    <div class="pageTitle center">
+        <a style="color: #000;" href="/">codeGlider's blog</a>
+    </div>
+    <p class="sub-title">
+        Do not go gentle into that good night...
+    </p>
+
+    <div class="menu">
+        <ul class="navlist">
+            
+            <li>
+                <a class="page-link" href="/">主页</a>
+            </li>
+            
+            <li>
+                <a class="page-link" href="/about">关于</a>
+            </li>
+            
+            <li>
+                <a class="page-link" href="http://www.jianshu.com/users/3007ce57abd3/latest_articles">简书</a>
+            </li>
+            
+            <li>
+                <a class="page-link" href="http://github.com/ShyHornet">源码</a>
+            </li>
+            
+            <li>
+                <a class="page-link" href="/feed.xml">订阅</a>
+            </li>
+            
+        </ul>
+    </div>
+    <p >我是一个iOS自由开发者，本站的开发纯属是个人兴趣，会发布一些iOS的技术分享和前端的学习分享，本站使用<Strong><a href="https://pages.github.com">github-pages</a></Strong>和<Strong><a href="http://jekyllrb.com">Jekyll</a></Strong>,源码在github上,欢迎大家点星星哈~ <iframe style="margin-top:10px;" src="https://ghbtns.com/github-btn.html?user=ShyHornet&repo=ShyHornet.github.io&type=star&count=true&size=large" frameborder="0" scrolling="0" width="160px" height="30px"></iframe></center></p>
+  
+</div>
+
+
+            <div class="post">
+  <script type="text/javascript">
+  (function() {
+    $('blockquote').wrap(document.getElementsByTagName('paper'));
+  })();
+    (function() {
+
+      $('#paper').jCorner();
+    })();
+    </script>
+  <header class="post-header">
+    <h1>如何在Mac(OSX 10.11)上更新Python</h1>
+  </header>
+
+  
+
+  <a class="tag">OSX</a>
+  
+
+  <a class="tag">Python</a>
+  
+
+  <a class="tag">shellScript</a>
+  
+  <p class="meta">21 Oct 2015</p>
+
+  <article class="post-content">
+  <p>首先下载最新版本的<code class="prettyprint">python</code>，目前最新版本3.5:<br>
+<a href="https://www.python.org/ftp/python/3.5.0/python-3.5.0-macosx10.6.pkg">下载地址</a><br>
+安装完成之后，打开终端，输入命令查看<code class="prettyprint">python</code>的版本:</p>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>python --version
+</code></pre></div>
+<p>如果不出意外。。应该还是2.7。。。<br>
+什么！？为什么。。好吧，别急，这是因为<code class="prettyprint">python</code>安装的路径是<code class="prettyprint">/Library/Frameworks/Python.framework</code>，<br>
+而系统路径是<code class="prettyprint">System/Library/Frameworks/Python.framework</code>所以我们还要移动一下。</p>
+
+<blockquote>
+<p>稍等，在这之前我们还要做一件事情，那就是OSX 10.11引入了更为严格的安全机制，我们所提到的<code class="prettyprint">System/Library/Frameworks/Python.framework</code>权限实际上比<code class="prettyprint">root</code>还要高。。传说中的<code class="prettyprint">rootless</code>，说实话比较坑。。不过我们还是有办法解决它:<br>
+1. 重启电脑<br>
+2. 按住<code class="prettyprint">Command+R</code>直到出现苹果logo并读条，进入恢复模式<br>
+3. 打开恢复模式的终端输入命令:<br>
+<code class="prettyprint">bash<br>
+$ csrutil disable<br>
+</code><br>
+如果还是没有权限，就在前面加上<code class="prettyprint">sudo</code></p>
+</blockquote>
+
+<p>移动的话，我写了一个可运行的<code class="prettyprint">shellScript</code>文件，可以帮你做到这一切:</p>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="se">\#</span>!/bin/bash
+<span class="se">\#</span>python版号需要修改两个地方
+<span class="se">\#</span>1. new_version
+
+sudo -i
+<span class="se">\#</span>得到超级权限
+<span class="nv">new_version</span><span class="o">=</span><span class="s2">&quot;3.5&quot;</span>
+
+<span class="nv">PYPATH</span><span class="o">=</span>/System/Library/Frameworks/Python.framework/Versions/<span class="s2">&quot;$new_version&quot;</span>
+<span class="se">\#</span>第1步移动新版python到mac默认目录下
+<span class="nb">echo</span> <span class="s2">&quot;move..&quot;</span>
+mv /Library/Frameworks/Python.framework/Versions/<span class="s2">&quot;$new_version&quot;</span> /System/Library/Frameworks/Python.framework/Versions/
+<span class="se">\#</span>第2步改变用户目录的用户组
+<span class="nb">echo</span> <span class="s2">&quot;chown..&quot;</span>
+chown -R root:wheel <span class="k">${</span><span class="nv">PYPATH</span><span class="k">}</span>
+<span class="se">\#</span>第3步 删除原来2.7的链接
+<span class="nb">echo</span> <span class="s2">&quot;del..&quot;</span>
+rm /System/Library/Frameworks/Python.framework/Versions/Current
+<span class="se">\#</span>第4步重新链接到最新版本的python
+<span class="nb">echo</span> <span class="s2">&quot;ln..&quot;</span>
+ln -s <span class="k">${</span><span class="nv">PYPATH</span><span class="k">}</span> /System/Library/Frameworks/Python.framework/Versions/Current
+<span class="se">\#</span>第5步删除旧的命令符号链接
+<span class="nb">echo</span> <span class="s2">&quot;rm..&quot;</span>
+rm /usr/bin/<span class="o">{</span>pydoc,python,pythonw,python-config<span class="o">}</span>
+<span class="nb">echo</span> <span class="s2">&quot;ln bin..&quot;</span>
+<span class="se">\#</span>第6步重新建立新的命令符号链接
+ln -s <span class="k">${</span><span class="nv">PYPATH</span><span class="k">}</span>/bin/pydoc<span class="s2">&quot;$new_version&quot;</span> /usr/bin/pydoc
+ln -s <span class="k">${</span><span class="nv">PYPATH</span><span class="k">}</span>/bin/python<span class="s2">&quot;$new_version&quot;</span> /usr/bin/python
+ln -s <span class="k">${</span><span class="nv">PYPATH</span><span class="k">}</span>/bin/pythonw<span class="s2">&quot;$new_version&quot;</span> /usr/bin/pythonw
+ln -s <span class="k">${</span><span class="nv">PYPATH</span><span class="k">}</span>/bin/python<span class="s2">&quot;$new_version&quot;</span>m-config /usr/bin/python-config
+
+
+<span class="nv">python_param_list</span><span class="o">=</span><span class="sb">`</span><span class="nb">cd</span> /usr/local/bin <span class="o">&amp;&amp;</span> ls -al <span class="p">|</span>grep <span class="s2">&quot;Python&quot;</span><span class="p">|</span>awk <span class="s1">&#39;ORS=&quot; &quot; {print $9}&#39;</span><span class="sb">`</span>
+<span class="se">\#</span>第7步修复其他链接
+<span class="k">for</span> i in <span class="nv">$python_param_list</span><span class="p">;</span><span class="k">do</span>
+  <span class="nb">echo</span> <span class="s2">&quot;info: $i&quot;</span>
+  rm -f /usr/local/bin/<span class="k">${</span><span class="nv">i</span><span class="k">}</span>
+  ln -sv /System/Library/Frameworks/Python.framework/Versions/<span class="s2">&quot;$new_version&quot;</span>/bin/<span class="k">${</span><span class="nv">i</span><span class="k">}</span> /usr/local/bin/<span class="k">${</span><span class="nv">i</span><span class="k">}</span>
+<span class="k">done</span>
+
+<span class="se">\#</span>第8步.环境变量要修改为最新的版本号
+<span class="nb">echo</span> <span class="s1">&#39;export PATH=/System/Library/Frameworks/Python.framework/Versions/3.4/bin:${PATH}&#39;</span> &gt;&gt; ~/.bashrc
+
+<span class="nb">exit</span> <span class="c">#退出超级权限</span>
+</code></pre></div>
+<blockquote>
+<p>sh文件如何运行?<br>
+1. 为其修改权限:<br>
+<code class="prettyprint">$ chmod 777 &lt;sh文件路径&gt;</code></p>
+</blockquote>
+
+  </article>
+  <!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="/2015/10/21/mac(OSX 10.11)上更新Python" data-title="如何在Mac(OSX 10.11)上更新Python" data-url="http://ShyHornet.github.io/2015/10/21/mac(OSX%2010.11)%E4%B8%8A%E6%9B%B4%E6%96%B0Python/"></div>
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"codeglider"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0]
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+<!-- 多说公共JS代码 end -->
+
+</div>
+
+
+            <footer class="site-footer">
+<a href="https://ShyHornet.github.io">A blog </a>written  by <a href="http://www.jianshu.com/users/3007ce57abd3/latest_articles">codeGlider</a>
+
+</footer>
+<img class="pen" src="/images/pen.png" src-data="/images/pen.png"/>
+
+
+
+          </div>
+          <div class="rotLeft rotBottom pageBack"></div>
+          <div class="rotRight rotBottom pageBack"></div>
+    </div>
+    </body>
+
+</html>

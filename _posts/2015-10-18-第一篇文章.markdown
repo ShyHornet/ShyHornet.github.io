@@ -1,7 +1,9 @@
 ---
+
 layout: post
 title:  "Jekyll初探"
-tags: front-end html css javascript Jquery Jkeyll
+tags: front-end html css javascript Jquery Jekyll
+
 ---
 
 受到[野子Joey的文章](http://www.jianshu.com/p/4fd3cb0a11da)的启发，我也开始研究**Jekyll**了!
@@ -136,9 +138,7 @@ your code....
 `{``%` endhighlight `%``}`
 ```
 这是因为`Jekyll`使用的`markdown`解析器不太一样，默认使用`kramdown`作为`markdown`解析器。不过可以改成我们需要的markdown解析器，在**_config.yml**文件中可以指定`markdown`解析器
-<div id="paper">
 >在`Jekyll`中，默认有三种`markdown`解析器:kramdown,redcarpet,rdiscount。
-</div>
 
 我发现redcarpet比较符合github和简书的`markdown`语法，在**_config.yml**文件中将
 
@@ -159,3 +159,50 @@ redcarpet:
     extensions: [ "hard_wrap","autolink", "tables", "strikethrough", "superscript", "with_toc_data", "highlight", "prettify","no_intra_emphasis"]
 ```
 现在，`Jekyll`的`markdown`格式就基本和`github`和`简书`中的`markdown`格式相同了！
+#代码高亮自定义
+代码高亮部分也是可以自定义，本网站使用的是`pygments`作为代码高亮器,其实这和github上使用的代码高亮器是相同的，它的风格可以选择，不过因为它是`python`编写的，需要用`python`的管理工具`pip`进行安装。
+以Mac(OSX10.11)为例，虽然本身自带`python`，但是并没有安装`pip`，所以要去手动下载安装:
+[下载地址](https://pypi.python.org/packages/source/p/pip/pip-7.1.2.tar.gz#md5=3823d2343d9f3aaab21cf9c917710196)
+下载后直接解压缩,打开终端将当前目录切换到解压缩后的文件夹中,然后输入:
+
+```bash
+$ python setup.py install
+```
+输入`pip`看看有没有反应,如果显示出`pip`命令的帮助就说明安装成功。
+然后输入:
+
+```bash
+$ pip install pygments
+```
+自定义代码高亮风格很简单，在css文件夹中建立一个新的css文件`pygments.css`，用来放置代码高亮样式。
+然后用以下命令生成`pygments`的`css`样式表:
+
+```bash
+$  pygmentize -S default -f html > your/path/pygments.css
+```
+这样是将默认风格的代码高亮风格注入到了我们新建的css文件中，这里也可以指定其他自带代码高亮样式.
+所有自带代码样式的列表可以通过输入`python`命令得到:
+首先输入`python`进入`python`命令行模式:
+
+```bash
+$ python
+```
+然后打印所有代码风格:
+
+```bash
+>>> from pygments.styles import STYLE_MAP
+>>> STYLE_MAP.keys()
+['manni', 'igor', 'xcode', 'vim', 'autumn', 'vs', 'rrt', 'native', 'perldoc', 'borland', 'tango', 'emacs', 'friendly', 'monokai', 'paraiso-dark', 'colorful', 'murphy', 'bw', 'pastie', 'paraiso-light', 'trac', 'default', 'fruity']
+```
+可以用其中任何一个名称代替上面代码中的`default`。
+
+
+比如`xcode`风格:
+
+![屏幕快照 2015-10-22 下午12.34.26.png](http://upload-images.jianshu.io/upload_images/727794-4e9bc86b2bdbad72.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+`borland`风格:
+
+![屏幕快照 2015-10-22 下午12.33.32.png](http://upload-images.jianshu.io/upload_images/727794-f1400d2fa0a9928c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+`colorful`风格:
+
+![屏幕快照 2015-10-22 下午12.51.42.png](http://upload-images.jianshu.io/upload_images/727794-39b70dcd80744899.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
